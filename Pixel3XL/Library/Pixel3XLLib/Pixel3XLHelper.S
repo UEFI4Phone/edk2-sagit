@@ -18,15 +18,6 @@
 .align 3
 
 ASM_FUNC(ArmPlatformPeiBootAction)
-// blank the screen, freeze forever
-	mov	x1, 10240
-	mov	x0, 0x9d400000
-	movk	x1, 0x9e44, lsl 16 // 1440 * 2960
-.L2:
-	str	wzr, [x0], 4
-	cmp	x0, x1
-	bne	.L2
-	b .
   ret
 
 //UINTN
