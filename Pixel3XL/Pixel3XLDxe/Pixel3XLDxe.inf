@@ -39,7 +39,6 @@
 [Protocols]
   gEfiDevicePathFromTextProtocolGuid
   gEfiLoadedImageProtocolGuid
-  gEmbeddedGpioProtocolGuid
 
 [Guids]
   gEfiEndOfDxeEventGroupGuid
