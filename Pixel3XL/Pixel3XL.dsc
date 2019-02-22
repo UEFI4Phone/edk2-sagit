@@ -24,7 +24,9 @@
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
-  FLASH_DEFINITION               = Pixel3XL.fdf
+  FLASH_DEFINITION               = Pixel3XL/Pixel3XL.fdf
+
+!include Pixel3XL/CommonDsc.dsc.inc
 
 [LibraryClasses.common]
   ArmLib|ArmPkg/Library/ArmLib/ArmBaseLib.inf
