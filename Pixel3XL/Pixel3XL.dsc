@@ -183,6 +183,8 @@
   #
   EmbeddedPkg/Drivers/VirtualKeyboardDxe/VirtualKeyboardDxe.inf
 
+  Pixel3XL/Pixel3XLDxe/Pixel3XLDxe.inf
+
   #
   # USB Host Support
   #

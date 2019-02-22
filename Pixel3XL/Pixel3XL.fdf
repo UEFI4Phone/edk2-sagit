@@ -146,6 +146,8 @@ READ_LOCK_STATUS   = TRUE
   #
   INF EmbeddedPkg/Drivers/VirtualKeyboardDxe/VirtualKeyboardDxe.inf
 
+  INF Pixel3XL/Pixel3XLDxe/Pixel3XLDxe.inf
+
 
   #
   # USB Host Support
