@@ -33,7 +33,21 @@ SerialPortInitialize (
   VOID
   )
 {
+  UINT8* base = (UINT8*)0xa1a10000ull;
+  for (UINTN i = 0; i < 0x200000; i++) {
+    base[i] = 0;
+  }
   return RETURN_SUCCESS;
+}
+
+static void mem_putchar(UINT8 c) {
+  static const UINTN size = 0x200000;
+  static UINTN offset = 0;
+  UINT8* base = (UINT8*)0xa1a10000ull;
+  base[offset++] = c;
+  if (offset >= size) {
+    offset = 0;
+  }
 }
 
 /**
@@ -60,7 +74,10 @@ SerialPortWrite (
   IN UINTN     NumberOfBytes
 )
 {
-  return 0;
+  for (UINTN i = 0; i < NumberOfBytes; i++) {
+    mem_putchar(Buffer[i]);
+  }
+  return NumberOfBytes;
 }
 
 
