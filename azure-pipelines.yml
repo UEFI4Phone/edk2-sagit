@@ -1,0 +1,10 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'Ubuntu-18.04'
+
+steps:
+- script: |
+    ./ci-build.sh
+  displayName: 'ci-build'
