@@ -1,5 +1,7 @@
 Attempt to create a minimal EDK2 for Pixel 3 XL.
 
+[![Build Status](https://dev.azure.com/zhuoweizhang/edk2-pixel3/_apis/build/status/Pixel3Dev.edk2-pixel3?branchName=master)](https://dev.azure.com/zhuoweizhang/edk2-pixel3/_build/latest?definitionId=1&branchName=master)
+
 ## Status
 
 Absolutely nothing works. Currently clears screen at boot, then freezes.
