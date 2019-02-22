@@ -16,23 +16,19 @@
 #
 ################################################################################
 [Defines]
-  PLATFORM_NAME                  = HiKey960
-  PLATFORM_GUID                  = bd1a557e-4423-466a-a462-38439588fd37
-  PLATFORM_VERSION               = 0.2
+  PLATFORM_NAME                  = Pixel3XL
+  PLATFORM_GUID                  = 28f1a3bf-193a-47e3-a7b9-5a435eaab2ee
+  PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010019
   OUTPUT_DIRECTORY               = Build/$(PLATFORM_NAME)
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
-  FLASH_DEFINITION               = Platform/Hisilicon/$(PLATFORM_NAME)/$(PLATFORM_NAME).fdf
-
-  DEFINE CONFIG_NO_DEBUGLIB      = TRUE
-
-!include Silicon/Hisilicon/Hisilicon.dsc.inc
+  FLASH_DEFINITION               = Pixel3XL.fdf
 
 [LibraryClasses.common]
   ArmLib|ArmPkg/Library/ArmLib/ArmBaseLib.inf
-  ArmPlatformLib|Platform/Hisilicon/HiKey960/Library/HiKey960Lib/HiKey960Lib.inf
+  ArmPlatformLib|Pixel3XL/Library/Pixel3XLLib/Pixel3XLLib.inf
 
   CapsuleLib|MdeModulePkg/Library/DxeCapsuleLibNull/DxeCapsuleLibNull.inf
   UefiBootManagerLib|MdeModulePkg/Library/UefiBootManagerLib/UefiBootManagerLib.inf
@@ -136,12 +132,6 @@
   gEmbeddedTokenSpaceGuid.PcdAndroidFastbootUsbProductId|0xd00d
 
   #
-  # Android Loader
-  #
-  gHiKey960TokenSpaceGuid.PcdAndroidBootDevicePath|L"VenHw(0D51905B-B77E-452A-A2C0-ECA0CC8D514A,00003BFF0000000000)/UFS(0x0,0x3)/HD(7,GPT,D3340696-9B95-4C64-8DF6-E6D4548FBA41,0x12100,0x4000)/\\EFI\\BOOT\\GRUBAA64.EFI"
-  gHiKey960TokenSpaceGuid.PcdSdBootDevicePath|L"VenHw(0D51905B-B77E-452A-A2C0-ECA0CC8D514A,00F037FF0000000000)/SD(0x0)"
-
-  #
   # Make VariableRuntimeDxe work at emulated non-volatile variable mode.
   #
   gEfiMdeModulePkgTokenSpaceGuid.PcdEmuVariableNvModeEnable|TRUE
@@ -195,15 +185,12 @@
   #
   # GPIO
   #
-  Platform/Hisilicon/HiKey960/HiKey960GpioDxe/HiKey960GpioDxe.inf
   ArmPlatformPkg/Drivers/PL061GpioDxe/PL061GpioDxe.inf
 
   #
   # Virtual Keyboard
   #
   EmbeddedPkg/Drivers/VirtualKeyboardDxe/VirtualKeyboardDxe.inf
-
-  Platform/Hisilicon/HiKey960/HiKey960Dxe/HiKey960Dxe.inf
 
   #
   # USB Host Support

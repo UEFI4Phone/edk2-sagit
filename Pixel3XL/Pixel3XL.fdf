@@ -24,14 +24,14 @@
 #
 ################################################################################
 
-[FD.BL33_AP_UEFI]
-BaseAddress   = 0x1AC98000|gArmTokenSpaceGuid.PcdFdBaseAddress  # The base address of the Firmware in NOR Flash.
-Size          = 0x000F0000|gArmTokenSpaceGuid.PcdFdSize         # The size in bytes of the FLASH Device
+[FD.PIXEL3XL_UEFI]
+BaseAddress   = 0xa0000000|gArmTokenSpaceGuid.PcdFdBaseAddress  # The base address of the Firmware in NOR Flash.
+Size          = 0x00200000|gArmTokenSpaceGuid.PcdFdSize         # The size in bytes of the FLASH Device
 ErasePolarity = 1
 
 # This one is tricky, it must be: BlockSize * NumBlocks = Size
 BlockSize     = 0x00001000
-NumBlocks     = 0xF0
+NumBlocks     = 0x200
 
 ################################################################################
 #
@@ -120,7 +120,6 @@ READ_LOCK_STATUS   = TRUE
   #
   # GPIO
   #
-  INF Platform/Hisilicon/HiKey960/HiKey960GpioDxe/HiKey960GpioDxe.inf
   INF ArmPlatformPkg/Drivers/PL061GpioDxe/PL061GpioDxe.inf
 
   #
@@ -128,7 +127,6 @@ READ_LOCK_STATUS   = TRUE
   #
   INF EmbeddedPkg/Drivers/VirtualKeyboardDxe/VirtualKeyboardDxe.inf
 
-  INF Platform/Hisilicon/HiKey960/HiKey960Dxe/HiKey960Dxe.inf
 
   #
   # USB Host Support
@@ -218,4 +216,3 @@ READ_LOCK_STATUS   = TRUE
     }
   }
 
-!include Silicon/Hisilicon/Hisilicon.fdf.inc

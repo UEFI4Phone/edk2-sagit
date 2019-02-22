@@ -12,8 +12,8 @@
 
 [Defines]
   INF_VERSION                    = 0x00010019
-  BASE_NAME                      = HiKey960Lib
-  FILE_GUID                      = 28873463-debb-4573-8382-1036f74bfcca
+  BASE_NAME                      = Pixel3XLLib
+  FILE_GUID                      = 61620091-45BA-4EFF-8F58-F7ABF228CEBC
   MODULE_TYPE                    = BASE
   VERSION_STRING                 = 1.0
   LIBRARY_CLASS                  = ArmPlatformLib
@@ -33,9 +33,9 @@
   SerialPortLib
 
 [Sources.common]
-  HiKey960.c
-  HiKey960Helper.S
-  HiKey960Mem.c
+  Pixel3XL.c
+  Pixel3XLHelper.S
+  Pixel3XLMem.c
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdArmPrimaryCore

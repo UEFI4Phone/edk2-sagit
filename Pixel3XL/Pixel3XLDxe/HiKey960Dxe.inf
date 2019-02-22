@@ -12,21 +12,19 @@
 
 [Defines]
   INF_VERSION                    = 0x0001001a
-  BASE_NAME                      = HiKey960Dxe
-  FILE_GUID                      = 6d824b2c-640e-4643-b9f2-9c09e8bff429
+  BASE_NAME                      = Pixel3XLDxe
+  FILE_GUID                      = 422BB380-0FFB-41EC-B86E-AE70F8A02DA3
   MODULE_TYPE                    = DXE_DRIVER
   VERSION_STRING                 = 1.0
-  ENTRY_POINT                    = HiKey960EntryPoint
+  ENTRY_POINT                    = Pixel3XLEntryPoint
 
 [Sources.common]
-  HiKey960Dxe.c
+  Pixel3XLDxe.c
 
 [Packages]
   EmbeddedPkg/EmbeddedPkg.dec
   MdeModulePkg/MdeModulePkg.dec
   MdePkg/MdePkg.dec
-  Platform/Hisilicon/HiKey960/HiKey960.dec
-  Silicon/Hisilicon/Hi3660/Hi3660.dec
 
 [LibraryClasses]
   BaseMemoryLib
@@ -35,7 +33,6 @@
   IoLib
   PcdLib
   TimerLib
-  UefiBootManagerLib
   UefiDriverEntryPoint
   UefiLib
 
@@ -43,14 +40,6 @@
   gEfiDevicePathFromTextProtocolGuid
   gEfiLoadedImageProtocolGuid
   gEmbeddedGpioProtocolGuid
-  gPlatformBootManagerProtocolGuid
-  gPlatformVirtualKeyboardProtocolGuid
-
-[Pcd]
-  gHiKey960TokenSpaceGuid.PcdAndroidBootDevicePath
-  gHiKey960TokenSpaceGuid.PcdAndroidBootFile
-  gHiKey960TokenSpaceGuid.PcdAndroidFastbootFile
-  gHiKey960TokenSpaceGuid.PcdSdBootDevicePath
 
 [Guids]
   gEfiEndOfDxeEventGroupGuid
