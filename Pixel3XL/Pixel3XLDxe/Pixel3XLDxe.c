@@ -40,12 +40,17 @@ InitPeripherals (
   IN VOID
   )
 {
+	/*
 	// set the screen
 	for (UINT64 addr = 0x9d400000ull; addr < 0x9d400000ull + (1440 * 2960 * 4); addr += 4) {
 		MmioWrite32(addr, 0);
 	}
 	// reboot
 	MmioWrite32(0xC264000, 0);
+	*/
+	// you know what, just set the pshold
+	int* pshold = (int*)0xC264000;
+	*pshold = 0;
 	// spin forever
 	while (1) {}
 }
