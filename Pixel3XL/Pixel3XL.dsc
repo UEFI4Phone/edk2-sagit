@@ -88,34 +88,23 @@
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"Alpha"
 
-  # System Memory (3GB)
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x00000000
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0xC0000000
+  # System Memory (4GB)
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0xfe0a0000
 
-  # HiKey960 Dual-Cluster profile
-  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
-  gArmPlatformTokenSpaceGuid.PcdClusterCount|2
+  # We only boot one processor here!
+  gArmPlatformTokenSpaceGuid.PcdCoreCount|1
+  gArmPlatformTokenSpaceGuid.PcdClusterCount|1
 
   #
   # ARM PrimeCell
   #
 
-  ## PL011 - Serial Terminal
-  DEFINE SERIAL_BASE = 0xFFF32000
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSerialRegisterBase|$(SERIAL_BASE)
-  gEfiMdePkgTokenSpaceGuid.PcdUartDefaultBaudRate|115200
-  gEfiMdePkgTokenSpaceGuid.PcdUartDefaultReceiveFifoDepth|0
-  gArmPlatformTokenSpaceGuid.PL011UartInteger|10
-  gArmPlatformTokenSpaceGuid.PL011UartFractional|26
-
-  ## PL031 RealTimeClock
-  gArmPlatformTokenSpaceGuid.PcdPL031RtcBase|0xFFF05000
-
   #
   # ARM General Interrupt Controller
   #
-  gArmTokenSpaceGuid.PcdGicDistributorBase|0xE82B1000
-  gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0xE82B2000
+  gArmTokenSpaceGuid.PcdGicDistributorBase|0x17a00000
+  gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17a60000
 
   gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut|10
 

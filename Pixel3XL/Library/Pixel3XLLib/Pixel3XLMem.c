@@ -26,24 +26,23 @@
 #define DDR_ATTRIBUTES_CACHED           ARM_MEMORY_REGION_ATTRIBUTE_WRITE_BACK
 #define DDR_ATTRIBUTES_UNCACHED         ARM_MEMORY_REGION_ATTRIBUTE_UNCACHED_UNBUFFERED
 
-#define HI3660_PERIPH_BASE              0xE0000000
-#define HI3660_PERIPH_SZ                0x20000000
-
-#define HIKEY960_EXTRA_SYSTEM_MEMORY_BASE  0x0000000100000000
-#define HIKEY960_EXTRA_SYSTEM_MEMORY_SIZE  0x0000000020000000
+#define SDM845_PERIPH_BASE              0x00000000
+#define SDM845_PERIPH_SZ                0x80000000
 
 #define HIKEY960_MEMORY_SIZE               0x0000000100000000
 
-STATIC struct HiKey960ReservedMemory {
+STATIC struct Pixel3XLReservedMemory {
   EFI_PHYSICAL_ADDRESS         Offset;
   EFI_PHYSICAL_ADDRESS         Size;
-} HiKey960ReservedMemoryBuffer [] = {
+} Pixel3XLReservedMemoryBuffer [] = {
+/*
   { 0x1AC00000, 0x00098000 },    // ARM-TF reserved
   { 0x32000000, 0x00100000 },    // PSTORE/RAMOOPS
   { 0x32100000, 0x00001000 },    // ADB REBOOT "REASON"
   { 0x3E000000, 0x02000000 },    // TEE OS
   { 0x89B80000, 0x00100000 },    // MCU Code reserved
   { 0x89C80000, 0x00040000 }     // MCU reserved
+*/ // TODO.
 };
 
 /**
@@ -87,30 +86,30 @@ ArmPlatformGetVirtualMemoryMap (
   );
 
   NextHob.Raw = GetHobList ();
-  Count = sizeof (HiKey960ReservedMemoryBuffer) / sizeof (struct HiKey960ReservedMemory);
+  Count = sizeof (Pixel3XLReservedMemoryBuffer) / sizeof (struct Pixel3XLReservedMemory);
   while ((NextHob.Raw = GetNextHob (EFI_HOB_TYPE_RESOURCE_DESCRIPTOR, NextHob.Raw)) != NULL)
   {
     if (Index >= Count)
       break;
     if ((NextHob.ResourceDescriptor->ResourceType == EFI_RESOURCE_SYSTEM_MEMORY) &&
-        (HiKey960ReservedMemoryBuffer[Index].Offset >= NextHob.ResourceDescriptor->PhysicalStart) &&
-        ((HiKey960ReservedMemoryBuffer[Index].Offset + HiKey960ReservedMemoryBuffer[Index].Size) <=
+        (Pixel3XLReservedMemoryBuffer[Index].Offset >= NextHob.ResourceDescriptor->PhysicalStart) &&
+        ((Pixel3XLReservedMemoryBuffer[Index].Offset + Pixel3XLReservedMemoryBuffer[Index].Size) <=
          NextHob.ResourceDescriptor->PhysicalStart + NextHob.ResourceDescriptor->ResourceLength))
     {
       ResourceAttributes = NextHob.ResourceDescriptor->ResourceAttribute;
       ResourceLength = NextHob.ResourceDescriptor->ResourceLength;
       ResourceTop = NextHob.ResourceDescriptor->PhysicalStart + ResourceLength;
-      ReservedTop = HiKey960ReservedMemoryBuffer[Index].Offset + HiKey960ReservedMemoryBuffer[Index].Size;
+      ReservedTop = Pixel3XLReservedMemoryBuffer[Index].Offset + Pixel3XLReservedMemoryBuffer[Index].Size;
 
       // Create the System Memory HOB for the reserved buffer
       BuildResourceDescriptorHob (
         EFI_RESOURCE_MEMORY_RESERVED,
         EFI_RESOURCE_ATTRIBUTE_PRESENT,
-        HiKey960ReservedMemoryBuffer[Index].Offset,
-        HiKey960ReservedMemoryBuffer[Index].Size
+        Pixel3XLReservedMemoryBuffer[Index].Offset,
+        Pixel3XLReservedMemoryBuffer[Index].Size
       );
       // Update the HOB
-      NextHob.ResourceDescriptor->ResourceLength = HiKey960ReservedMemoryBuffer[Index].Offset -
+      NextHob.ResourceDescriptor->ResourceLength = Pixel3XLReservedMemoryBuffer[Index].Offset -
                                                    NextHob.ResourceDescriptor->PhysicalStart;
 
       // If there is some memory available on the top of the reserved memory then create a HOB
@@ -139,16 +138,16 @@ ArmPlatformGetVirtualMemoryMap (
 
   Index = 0;
 
-  // DDR - 3.0GB section
+  // DDR - 4.0GB section
   VirtualMemoryTable[Index].PhysicalBase    = PcdGet64 (PcdSystemMemoryBase);
   VirtualMemoryTable[Index].VirtualBase     = PcdGet64 (PcdSystemMemoryBase);
   VirtualMemoryTable[Index].Length          = PcdGet64 (PcdSystemMemorySize);
   VirtualMemoryTable[Index].Attributes      = CacheAttributes;
 
-  // Hi3660 SOC peripherals
-  VirtualMemoryTable[++Index].PhysicalBase  = HI3660_PERIPH_BASE;
-  VirtualMemoryTable[Index].VirtualBase     = HI3660_PERIPH_BASE;
-  VirtualMemoryTable[Index].Length          = HI3660_PERIPH_SZ;
+  // SDM845 SOC peripherals
+  VirtualMemoryTable[++Index].PhysicalBase  = SDM845_PERIPH_BASE;
+  VirtualMemoryTable[Index].VirtualBase     = SDM845_PERIPH_BASE;
+  VirtualMemoryTable[Index].Length          = SDM845_PERIPH_SZ;
   VirtualMemoryTable[Index].Attributes      = ARM_MEMORY_REGION_ATTRIBUTE_DEVICE;
 
   // End of Table
