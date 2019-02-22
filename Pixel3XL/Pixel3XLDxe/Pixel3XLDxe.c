@@ -41,7 +41,7 @@ InitPeripherals (
   )
 {
 	// set the screen
-	for (uint64_t addr = 0x9d400000ull; addr < 0x9d400000ull + (1440 * 2960 * 4); addr += 4) {
+	for (UINT64 addr = 0x9d400000ull; addr < 0x9d400000ull + (1440 * 2960 * 4); addr += 4) {
 		MmioWrite32(addr, 0);
 	}
 	// reboot
