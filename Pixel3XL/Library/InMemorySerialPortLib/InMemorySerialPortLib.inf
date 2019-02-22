@@ -15,9 +15,9 @@
 
 [Defines]
   INF_VERSION                    = 0x00010005
-  BASE_NAME                      = BaseSerialPortLibNull
-  MODULE_UNI_FILE                = BaseSerialPortLibNull.uni
-  FILE_GUID                      = E4541241-8897-411a-91F8-7D7E45837146
+  BASE_NAME                      = InMemorySerialPortLib
+  MODULE_UNI_FILE                = InMemorySerialPortLib.uni
+  FILE_GUID                      = 762fbf9a-984a-4960-9c7c-e0a076860304
   MODULE_TYPE                    = BASE
   VERSION_STRING                 = 1.0
   LIBRARY_CLASS                  = SerialPortLib
@@ -28,7 +28,7 @@
 #
 
 [Sources]
-  BaseSerialPortLibNull.c
+  InMemorySerialPortLib.c
 
 
 [Packages]

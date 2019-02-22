@@ -15,7 +15,7 @@
 // **/
 
 
-#string STR_MODULE_ABSTRACT             #language en-US "Null instance of Serial Port Library with empty functions"
+#string STR_MODULE_ABSTRACT             #language en-US "Serial Port Library that dumps everything written to in memory buffer"
 
-#string STR_MODULE_DESCRIPTION          #language en-US "Null instance of Serial Port Library with empty functions."
+#string STR_MODULE_DESCRIPTION          #language en-US "Serial Port Library that dumps everything written to in memory buffer"
 
