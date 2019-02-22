@@ -1,0 +1,35 @@
+#
+#  Copyright (c) 2018, Linaro. All rights reserved.
+#
+#  This program and the accompanying materials
+#  are licensed and made available under the terms and conditions of the BSD License
+#  which accompanies this distribution.  The full text of the license may be found at
+#  http://opensource.org/licenses/bsd-license.php
+#
+#  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+
+[Defines]
+  INF_VERSION                    = 0x0001001a
+  BASE_NAME                      = HiKey960GpioDxe
+  FILE_GUID                      = 6aa12592-7e36-4aec-acf8-2ac2fd13815c
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = HiKey960GpioEntryPoint
+
+[Sources]
+  HiKey960GpioDxe.c
+
+[Packages]
+  EmbeddedPkg/EmbeddedPkg.dec
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+
+[Protocols]
+  gPlatformGpioProtocolGuid
+
+[Depex]
+  TRUE
