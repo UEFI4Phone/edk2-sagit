@@ -31,18 +31,10 @@
 
 #define HIKEY960_MEMORY_SIZE               0x0000000100000000
 
-
-// A compromise between the original HiKey960's reserved memory code and Lumia950XLPkg's massive tables
 STATIC struct Pixel3XLReservedMemory {
   EFI_PHYSICAL_ADDRESS         Offset;
   EFI_PHYSICAL_ADDRESS         Size;
-  EFI_RESOURCE_ATTRIBUTE_TYPE  Attributes;
-  ARM_MEMORY_REGION_ATTRIBUTES MemoryTableAttributes;
 } Pixel3XLReservedMemoryBuffer [] = {
-/*
-  { 0x9d400000, 0x02400000, EFI_RESOURCE_ATTRIBUTE_WRITE_THROUGH_CACHEABLE, ARM_MEMORY_REGION_ATTRIBUTE_WRITE_THROUGH},
-  { 0xa1a10000, 0x00200000, EFI_RESOURCE_ATTRIBUTE_UNCACHEABLE, ARM_MEMORY_REGION_ATTRIBUTE_UNCACHED_UNBUFFERED},
-*/
 /*
   { 0x1AC00000, 0x00098000 },    // ARM-TF reserved
   { 0x32000000, 0x00100000 },    // PSTORE/RAMOOPS
@@ -112,7 +104,7 @@ ArmPlatformGetVirtualMemoryMap (
       // Create the System Memory HOB for the reserved buffer
       BuildResourceDescriptorHob (
         EFI_RESOURCE_MEMORY_RESERVED,
-        Pixel3XLReservedMemoryBuffer[Index].Attributes,
+        EFI_RESOURCE_ATTRIBUTE_PRESENT,
         Pixel3XLReservedMemoryBuffer[Index].Offset,
         Pixel3XLReservedMemoryBuffer[Index].Size
       );
@@ -146,38 +138,17 @@ ArmPlatformGetVirtualMemoryMap (
 
   Index = 0;
 
+  // DDR - 4.0GB section
+  VirtualMemoryTable[Index].PhysicalBase    = PcdGet64 (PcdSystemMemoryBase);
+  VirtualMemoryTable[Index].VirtualBase     = PcdGet64 (PcdSystemMemoryBase);
+  VirtualMemoryTable[Index].Length          = PcdGet64 (PcdSystemMemorySize);
+  VirtualMemoryTable[Index].Attributes      = CacheAttributes;
+
   // SDM845 SOC peripherals
-  VirtualMemoryTable[Index].PhysicalBase    = SDM845_PERIPH_BASE;
+  VirtualMemoryTable[++Index].PhysicalBase  = SDM845_PERIPH_BASE;
   VirtualMemoryTable[Index].VirtualBase     = SDM845_PERIPH_BASE;
   VirtualMemoryTable[Index].Length          = SDM845_PERIPH_SZ;
   VirtualMemoryTable[Index].Attributes      = ARM_MEMORY_REGION_ATTRIBUTE_DEVICE;
-
-  EFI_PHYSICAL_ADDRESS RamBase = PcdGet64 (PcdSystemMemoryBase); 
-
-  // Honestly, I should probably just copypasta Lumia950XLPkg's table.
-  // Oh well.
-  for (unsigned int reserveI = 0; reserveI < Count; reserveI++) {
-    UINTN lastNonReservedBlockEnd = Pixel3XLReservedMemoryBuffer[reserveI].Offset;
-    if (lastNonReservedBlockEnd > RamBase) {
-      VirtualMemoryTable[Index++].PhysicalBase = RamBase;
-      VirtualMemoryTable[Index].VirtualBase = RamBase;
-      VirtualMemoryTable[Index].Length = lastNonReservedBlockEnd - RamBase;
-      VirtualMemoryTable[Index].Attributes = CacheAttributes;
-    }
-    VirtualMemoryTable[Index++].PhysicalBase = lastNonReservedBlockEnd;
-    VirtualMemoryTable[Index].VirtualBase = lastNonReservedBlockEnd;
-    VirtualMemoryTable[Index].Length = Pixel3XLReservedMemoryBuffer[reserveI].Size;
-    VirtualMemoryTable[Index].Attributes = Pixel3XLReservedMemoryBuffer[reserveI].MemoryTableAttributes;
-    RamBase = lastNonReservedBlockEnd + Pixel3XLReservedMemoryBuffer[reserveI].Size;
-  }
-
-  EFI_PHYSICAL_ADDRESS EndOfMemory = PcdGet64 (PcdSystemMemoryBase) + PcdGet64 (PcdSystemMemorySize);
-  if (EndOfMemory > RamBase) {
-    VirtualMemoryTable[Index++].PhysicalBase = RamBase;
-    VirtualMemoryTable[Index].VirtualBase = RamBase;
-    VirtualMemoryTable[Index].Length = EndOfMemory - RamBase;
-    VirtualMemoryTable[Index].Attributes = CacheAttributes;
-  }
 
   // End of Table
   VirtualMemoryTable[++Index].PhysicalBase  = 0;
