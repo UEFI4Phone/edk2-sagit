@@ -33,10 +33,12 @@ SerialPortInitialize (
   VOID
   )
 {
+#if 0
   UINT8* base = (UINT8*)0xa1a10000ull;
   for (UINTN i = 0; i < 0x200000; i++) {
     base[i] = 0;
   }
+#endif
   return RETURN_SUCCESS;
 }
 
