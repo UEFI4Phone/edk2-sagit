@@ -27,3 +27,10 @@
 ################################################################################
 [Guids.common]
   gPixel3XLTokenSpaceGuid        = { 0x99a14446, 0xaad7, 0xe460, {0xb4, 0xe5, 0x1f, 0x79, 0xaa, 0xa4, 0x93, 0xfd } }
+
+[PcdsFixedAtBuild.common]
+  # Simple FrameBuffer
+  gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferAddress|0x00400000|UINT32|0x0000a400
+  gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferWidth|1080|UINT32|0x0000a401
+  gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferHeight|1920|UINT32|0x0000a402
+  gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32|UINT32|0x0000a403

@@ -127,6 +127,10 @@
   #
   gEfiMdeModulePkgTokenSpaceGuid.PcdEmuVariableNvModeEnable|TRUE
 
+  gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferAddress|0x9d400000
+  gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferWidth|1440
+  gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferHeight|2960
+
 ################################################################################
 #
 # Components Section - list of all EDK II Modules needed by this Platform
@@ -183,6 +187,7 @@
   EmbeddedPkg/Drivers/VirtualKeyboardDxe/VirtualKeyboardDxe.inf
 
   Pixel3XL/Pixel3XLDxe/Pixel3XLDxe.inf
+  Pixel3XL/SimpleFbDxe/SimpleFbDxe.inf
 
   #
   # USB Host Support

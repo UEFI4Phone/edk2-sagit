@@ -32,3 +32,7 @@ Also see [EDK2 website](https://github.com/tianocore/tianocore.github.io/wiki/Us
 Finally, ./build.sh.
 
 Then fastboot boot uefi.img.
+
+# Credits
+
+SimpleFbDxe screen driver is from imbushuo's [Lumia950XLPkg](https://github.com/WOA-Project/Lumia950XLPkg).

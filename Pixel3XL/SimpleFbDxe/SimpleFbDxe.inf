@@ -16,7 +16,7 @@
   MdeModulePkg/MdeModulePkg.dec
   EmbeddedPkg/EmbeddedPkg.dec
   ArmPkg/ArmPkg.dec
-  Lumia950XLPkg/Lumia950XLPkg.dec
+  Pixel3XL/Pixel3XL.dec
 
 [LibraryClasses]
   BaseLib
@@ -26,7 +26,6 @@
   UefiDriverEntryPoint
   BaseMemoryLib
   DebugLib
-  CompilerIntrinsicsLib
   PcdLib
 
 [Protocols]
@@ -34,10 +33,9 @@
   gEfiCpuArchProtocolGuid
 
 [FixedPcd]
-  gLumia950XLPkgTokenSpaceGuid.PcdMipiFrameBufferAddress
-  gLumia950XLPkgTokenSpaceGuid.PcdMipiFrameBufferWidth
-  gLumia950XLPkgTokenSpaceGuid.PcdMipiFrameBufferHeight
-  gLumia950XLPkgTokenSpaceGuid.PcdEnableScreenSerial
+  gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferAddress
+  gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferWidth
+  gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferHeight
 
 [Guids]
   gEfiMdeModulePkgTokenSpaceGuid
