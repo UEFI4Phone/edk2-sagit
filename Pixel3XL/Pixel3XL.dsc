@@ -104,7 +104,7 @@
   # ARM General Interrupt Controller
   #
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x17a00000
-  gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17a60000
+  gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17a60000
 
   gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut|10
 
