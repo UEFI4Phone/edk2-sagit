@@ -28,6 +28,7 @@
   DebugLib
   PcdLib
   FrameBufferBltLib
+  CacheMaintenanceLib
 
 [Protocols]
   gEfiGraphicsOutputProtocolGuid ## PRODUCES

@@ -11,6 +11,7 @@
 #include <Protocol/GraphicsOutput.h>
 #include <Library/BaseLib.h>
 #include <Library/FrameBufferBltLib.h>
+#include <Library/CacheMaintenanceLib.h>
 
 /// Defines
 /*
@@ -188,6 +189,11 @@ DisplayBlt
              Delta
              );
   gBS->RestoreTPL (Tpl);
+
+  // zhuowei: hack: flush the cache manually since my memory maps are still broken
+  WriteBackInvalidateDataCacheRange((void*)mDisplay.Mode->FrameBufferBase, 
+    mDisplay.Mode->FrameBufferSize);
+  // zhuowei: end hack
 
   return RETURN_ERROR (Status) ? EFI_INVALID_PARAMETER : EFI_SUCCESS;
 }
