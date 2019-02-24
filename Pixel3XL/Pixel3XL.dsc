@@ -109,6 +109,9 @@
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x17a00000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17a60000
 
+  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|0x12
+  gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|0x13
+
   gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut|10
 
   # GUID of the UI app
