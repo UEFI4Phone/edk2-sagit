@@ -172,6 +172,7 @@ DisplayBlt
     IN  UINTN                             Delta         OPTIONAL
 )
 {
+
   RETURN_STATUS                         Status;
   EFI_TPL                               Tpl;
   //
@@ -296,6 +297,8 @@ SimpleFbDxeInitialize
     // zhuowei: clear the screen to black
     // UEFI standard requires this, since text is white - see OvmfPkg/QemuVideoDxe/Gop.c
     ZeroMem((void*)FrameBufferAddress, FrameBufferSize);
+    // hack: clear cache
+    WriteBackInvalidateDataCacheRange((void*)FrameBufferAddress, FrameBufferSize);
     // zhuowei: end
  
     /* Register handle */
