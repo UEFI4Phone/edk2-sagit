@@ -228,6 +228,20 @@
   FatPkg/EnhancedFatDxe/Fat.inf
 
   #
+  # ACPI Support
+  #
+  MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
+  MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
+  MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
+  Pixel3XL/AcpiTables/AcpiTables.inf
+
+  #
+  # SMBIOS Support
+  #
+  Pixel3XL/Drivers/SmbiosPlatformDxe/SmbiosPlatformDxe.inf
+  MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
+
+  #
   # Bds
   #
   MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
