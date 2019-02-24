@@ -497,6 +497,10 @@ SimpleFbDxeInitialize
 
     ASSERT_EFI_ERROR (Status);
 
+    // zhuowei: clear the screen
+    ZeroMem((void*)FrameBufferAddress, FrameBufferSize);
+    // zhuowei: end
+
     return Status;
 
 }
