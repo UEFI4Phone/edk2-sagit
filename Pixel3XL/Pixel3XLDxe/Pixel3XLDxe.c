@@ -86,11 +86,6 @@ Pixel3XLEntryPoint (
   EFI_STATUS            Status;
   EFI_EVENT             EndOfDxeEvent;
 
-  // give up, reboot the thing
-  WriteBackDataCache();
-  MmioWrite32(0xC264000, 0);
-  while (1) {}
-
   Status = gBS->LocateProtocol (&gEfiCpuArchProtocolGuid, NULL, (VOID **)&gCpu);
   ASSERT_EFI_ERROR(Status);
 
