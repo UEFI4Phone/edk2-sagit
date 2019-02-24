@@ -16,15 +16,15 @@
 
 [Defines]
   INF_VERSION                    = 0x00010005
-  BASE_NAME                      = JunoAcpiTables
-  FILE_GUID                      = a1dd808e-1e95-4399-abc0-653c82e8530c
+  BASE_NAME                      = Pixel3XLAcpiTables
+  FILE_GUID                      = BA2168C2-F177-4A28-B3A6-AF973C40D7E5
   MODULE_TYPE                    = USER_DEFINED
   VERSION_STRING                 = 1.0
 
 [Sources]
   Dsdt.asl
   Dbg2.aslc
-  Spcr.aslc
+  #Spcr.aslc
   Fadt.aslc
   Gtdt.aslc
   Madt.aslc
@@ -36,7 +36,7 @@
   EmbeddedPkg/EmbeddedPkg.dec
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  Platform/ARM/JunoPkg/ArmJuno.dec
+  Pixel3XL/Pixel3XL.dec
 
 [FixedPcd]
   gArmPlatformTokenSpaceGuid.PcdCoreCount

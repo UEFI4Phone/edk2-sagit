@@ -194,7 +194,7 @@ READ_LOCK_STATUS   = TRUE
   #
   # SMBIOS Support
   #
-  INF Pixel3XL/Drivers/PlatformSmbiosDxe/PlatformSmbiosDxe.inf
+  INF Pixel3XL/Drivers/SmbiosPlatformDxe/SmbiosPlatformDxe.inf
   INF MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
 
   #

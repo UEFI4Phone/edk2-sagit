@@ -17,7 +17,7 @@
 [Defines]
   INF_VERSION                    = 0x00010005
   BASE_NAME                      = SmbiosPlatformDxe
-  FILE_GUID                      = 4110465d-5ff3-4f4b-b580-24ed0d06747a
+  FILE_GUID                      = B736DF5D-59ED-48C0-AC10-1EEE228D085B
   MODULE_TYPE                    = DXE_DRIVER
   VERSION_STRING                 = 1.0
 
@@ -37,7 +37,7 @@
   ArmPlatformPkg/ArmPlatformPkg.dec
   MdeModulePkg/MdeModulePkg.dec
   MdePkg/MdePkg.dec
-  Platform/ARM/JunoPkg/ArmJuno.dec
+  Pixel3XL/Pixel3XL.dec
 
 [LibraryClasses]
   ArmLib
