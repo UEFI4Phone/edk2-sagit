@@ -139,6 +139,8 @@
   gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferWidth|1440
   gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferHeight|2960
 
+  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiExposedTableVersions|0x20
+
 ################################################################################
 #
 # Components Section - list of all EDK II Modules needed by this Platform

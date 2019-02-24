@@ -17,7 +17,7 @@
 [Defines]
   INF_VERSION                    = 0x00010005
   BASE_NAME                      = Pixel3XLAcpiTables
-  FILE_GUID                      = BA2168C2-F177-4A28-B3A6-AF973C40D7E5
+  FILE_GUID                      = 7E374E25-8E01-4FEE-87F2-390C23C606CD # Must be this
   MODULE_TYPE                    = USER_DEFINED
   VERSION_STRING                 = 1.0
 
