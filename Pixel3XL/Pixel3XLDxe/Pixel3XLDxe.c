@@ -28,6 +28,7 @@
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/UefiLib.h>
 
+#include <Protocol/Cpu.h>
 #include <Protocol/DevicePathFromText.h>
 #include <Protocol/EmbeddedGpio.h>
 #include <Protocol/LoadedImage.h>
@@ -35,11 +36,21 @@
 
 #include "Pixel3XLDxe.h"
 
+EFI_CPU_ARCH_PROTOCOL     *gCpu;
+
 VOID
 InitPeripherals (
   IN VOID
   )
 {
+  EFI_STATUS            Status;
+  // https://lists.01.org/pipermail/edk2-devel/2017-August/013417.html
+  Status = gCpu->SetMemoryAttributes (gCpu, 0xa1a10000, 0x200000,
+                  EFI_MEMORY_UC | EFI_MEMORY_XP);
+  ASSERT_EFI_ERROR (Status);
+  Status = gCpu->SetMemoryAttributes (gCpu, 0x9d400000, 0x2400000,
+                  EFI_MEMORY_WC | EFI_MEMORY_XP);
+  ASSERT_EFI_ERROR (Status);
 }
 
 /**
@@ -74,6 +85,9 @@ Pixel3XLEntryPoint (
 {
   EFI_STATUS            Status;
   EFI_EVENT             EndOfDxeEvent;
+
+  Status = gBS->LocateProtocol (&gEfiCpuArchProtocolGuid, NULL, (VOID **)&gCpu);
+  ASSERT_EFI_ERROR(Status);
 
   InitPeripherals ();
 

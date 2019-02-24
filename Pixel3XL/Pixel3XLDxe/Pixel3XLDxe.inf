@@ -39,9 +39,10 @@
 [Protocols]
   gEfiDevicePathFromTextProtocolGuid
   gEfiLoadedImageProtocolGuid
+  gEfiCpuArchProtocolGuid
 
 [Guids]
   gEfiEndOfDxeEventGroupGuid
 
 [Depex]
-  TRUE
+  gEfiCpuArchProtocolGuid
