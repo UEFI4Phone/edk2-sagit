@@ -43,6 +43,7 @@ InitPeripherals (
   IN VOID
   )
 {
+  /* This also crashes. Do you really hate memory attributes or something?
   EFI_STATUS            Status;
   // https://lists.01.org/pipermail/edk2-devel/2017-August/013417.html
   Status = gCpu->SetMemoryAttributes (gCpu, 0xa1a10000, 0x200000,
@@ -51,6 +52,7 @@ InitPeripherals (
   Status = gCpu->SetMemoryAttributes (gCpu, 0x9d400000, 0x2400000,
                   EFI_MEMORY_WC | EFI_MEMORY_XP);
   ASSERT_EFI_ERROR (Status);
+  */
 }
 
 /**
