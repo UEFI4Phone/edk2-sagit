@@ -706,6 +706,8 @@ STATIC CONST VOID *DefaultTablesR0R1[]=
   NULL
 };
 
+/*
+
 STATIC CONST VOID *DefaultTablesR2[]=
 {
   &mArmDefaultType7_a57_l1i, // Cache layout is the same on the A72 vs A57
@@ -715,6 +717,7 @@ STATIC CONST VOID *DefaultTablesR2[]=
   NULL
 };
 
+*/
 
 /**
    Installs a memory descriptor (type19) for the given address range
@@ -791,23 +794,7 @@ InstallAllStructures (
    )
 {
   EFI_STATUS                Status = EFI_SUCCESS;
-  UINT32                    JunoRevision;
   VOID                      *ExtraTables = DefaultTablesR0R1;
-
-  GetJunoRevision(JunoRevision);
-
-  // Fixup some table values
-  mArmDefaultType0.Base.SystemBiosMajorRelease = (PcdGet32 ( PcdFirmwareRevision ) >> 16) & 0xFF;
-  mArmDefaultType0.Base.SystemBiosMinorRelease = PcdGet32 ( PcdFirmwareRevision ) & 0xFF;
-  if ( JunoRevision == JUNO_REVISION_R1 ) 
-  {
-    mArmDefaultType2.Base.Version = 6;
-  }
-  else if ( JunoRevision == JUNO_REVISION_R2 )
-  {
-    mArmDefaultType2.Base.Version = 7;
-    ExtraTables=DefaultTablesR2;
-  }
 
   //
   // Add all Juno table entries
@@ -820,8 +807,6 @@ InstallAllStructures (
 
   // Generate memory descriptors for the two memory ranges we know about
   Status = InstallMemoryStructure ( Smbios, PcdGet64 (PcdSystemMemoryBase), PcdGet64 (PcdSystemMemorySize));
-  ASSERT_EFI_ERROR (Status);
-  Status = InstallMemoryStructure ( Smbios, ARM_JUNO_EXTRA_SYSTEM_MEMORY_BASE, ARM_JUNO_EXTRA_SYSTEM_MEMORY_SZ);
   ASSERT_EFI_ERROR (Status);
 
   return Status;
