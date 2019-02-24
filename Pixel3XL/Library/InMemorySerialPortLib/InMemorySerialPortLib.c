@@ -15,6 +15,7 @@
 
 #include <Base.h>
 #include <Library/SerialPortLib.h>
+#include <Library/CacheMaintenanceLib.h>
 
 /**
   Initialize the serial device hardware.
@@ -50,6 +51,7 @@ static void mem_putchar(UINT8 c) {
   if (offset >= size) {
     offset = 0;
   }
+  WriteBackInvalidateDataCacheRange(base, size);
 }
 
 /**
