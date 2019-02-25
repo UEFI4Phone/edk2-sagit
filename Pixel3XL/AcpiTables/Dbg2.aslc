@@ -22,7 +22,7 @@
 
 #pragma pack(1)
 
-#define DBG2_NUM_DEBUG_PORTS                       1
+#define DBG2_NUM_DEBUG_PORTS                       0
 #define DBG2_NUMBER_OF_GENERIC_ADDRESS_REGISTERS   1
 #define DBG2_NAMESPACESTRING_FIELD_SIZE            8
 #define PL011_UART_LENGTH                          0x1000
@@ -72,6 +72,7 @@ STATIC DBG2_TABLE Dbg2 = {
     DBG2_NUM_DEBUG_PORTS                                              /* UINT32  NumberDbgDeviceInfo */
   },
   {
+#if 0
     /*
      * Kernel Debug Port
      */
@@ -80,6 +81,7 @@ STATIC DBG2_TABLE Dbg2 = {
                           FixedPcdGet64 (PcdSerialDbgRegisterBase),
                           PL011_UART_LENGTH,
                           NAME_STR_UART1),
+#endif
   }
 };
 

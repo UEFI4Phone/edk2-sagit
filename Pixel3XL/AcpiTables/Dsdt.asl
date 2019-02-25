@@ -22,6 +22,7 @@ DefinitionBlock("DsdtTable.aml", "DSDT", 1, "ARMLTD", "ARM-JUNO", EFI_ACPI_ARM_O
     Method (_OSC, 4, Serialized)  { // _OSC: Operating System Capabilities
       CreateDWordField (Arg3, 0x00, STS0)
       CreateDWordField (Arg3, 0x04, CAP0)
+#if 0
       If ((Arg0 == ToUUID ("0811b06e-4a27-44f9-8d60-3cbbc22e7b48") /* Platform-wide Capabilities */)) {
         If (!(Arg1 == One)) {
           STS0 &= ~0x1F
@@ -37,11 +38,13 @@ DefinitionBlock("DsdtTable.aml", "DSDT", 1, "ARMLTD", "ARM-JUNO", EFI_ACPI_ARM_O
         STS0 &= ~0x1F
         STS0 |= 0x06
       }
+#endif // platformwide
       Return (Arg3)
     }
     Device (CLU0) { // Cluster0 state
       Name(_HID, "ACPI0010")
       Name(_UID, 1)
+#if 0
       Name (_LPI, Package() {
         0, // Version
         0, // Level Index
@@ -116,13 +119,17 @@ DefinitionBlock("DsdtTable.aml", "DSDT", 1, "ARMLTD", "ARM-JUNO", EFI_ACPI_ARM_O
           "CorePwrDn"
         },
       })
+#endif // power
       Device(CPU0) { // A57-0: Cluster 0, Cpu 0
         Name(_HID, "ACPI0007")
-        Name(_UID, 4)
+        Name(_UID, 0)
+#if 0
         Method (_LPI, 0, NotSerialized) {
           return(PLPI)
         }
+#endif
       }
+#if 0
       Device(CPU1) { // A57-1: Cluster 0, Cpu 1
         Name(_HID, "ACPI0007")
         Name(_UID, 5)
@@ -130,7 +137,9 @@ DefinitionBlock("DsdtTable.aml", "DSDT", 1, "ARMLTD", "ARM-JUNO", EFI_ACPI_ARM_O
           return(PLPI)
         }
       }
+#endif // cpu 0
     }
+#if 0
     Device (CLU1) { // Cluster1 state
       Name(_HID, "ACPI0010")
       Name(_UID, 2)
@@ -237,7 +246,9 @@ DefinitionBlock("DsdtTable.aml", "DSDT", 1, "ARMLTD", "ARM-JUNO", EFI_ACPI_ARM_O
         }
       }
     }
+#endif // cluster 1
 
+#if 0
     //
     // Keyboard and Mouse
     //
@@ -384,5 +395,6 @@ DefinitionBlock("DsdtTable.aml", "DSDT", 1, "ARMLTD", "ARM-JUNO", EFI_ACPI_ARM_O
             } // USB0_RHUB_HUB1
         } // USB0_RHUB
     } // USB0
+#endif
   } // Scope(_SB)
 }

@@ -28,7 +28,7 @@
   Fadt.aslc
   Gtdt.aslc
   Madt.aslc
-  AcpiSsdtRootPci.asl          # Juno R1 specific
+  #AcpiSsdtRootPci.asl          # Juno R1 specific
 
 [Packages]
   ArmPkg/ArmPkg.dec

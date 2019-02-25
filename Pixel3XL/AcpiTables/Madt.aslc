@@ -90,9 +90,8 @@
       0, // Flags
     },
     {
-#if 0
-      // Format: EFI_ACPI_5_1_GICC_STRUCTURE_INIT(GicId, AcpiCpuUid, Flags, PmuIrq, GicBase, GicVBase, GicHBase,
-      //                                          GsivId, GicRBase, Mpidr)
+      // Format: EFI_ACPI_5_1_GICC_STRUCTURE_INIT(GicId, AcpiCpuUid, MpIdr, Flags, PmuIrq, GicBase, GicVBase, GicHBase,
+      //                                          GsivId, GicRBase)
       // Note: The GIC Structure of the primary CPU must be the first entry (see note in 5.2.12.14 GICC Structure of
       //       ACPI v5.1).
       //       On Juno we can change the primary CPU changing the SCC register. It is not currently supported in the
@@ -101,8 +100,9 @@
       //       The cores from a same cluster are kept together. It is not an ACPI requirement but in case the OSPM uses
       //       the ACPI ARM Parking protocol, it might want to wake up the cores in the order of this table.
       EFI_ACPI_5_1_GICC_STRUCTURE_INIT( // A53-0
-          2, 0, GET_MPID(1, 0), EFI_ACPI_5_0_GIC_ENABLED, 50, FixedPcdGet64 (PcdGicInterruptInterfaceBase),
-          0x2C06F000, 0x2C04F000, 25, 0 /* GicRBase */),
+          0, 0, GET_MPID(0, 0), EFI_ACPI_5_0_GIC_ENABLED, 23, FixedPcdGet64 (PcdGicInterruptInterfaceBase),
+          0 /* GicVBase */, 0 /*GicHBase */, 25, 0 /* GicRBase */),
+#if 0
       EFI_ACPI_5_1_GICC_STRUCTURE_INIT( // A53-1
           3, 1, GET_MPID(1, 1),  EFI_ACPI_5_0_GIC_ENABLED, 54, FixedPcdGet64 (PcdGicInterruptInterfaceBase),
           0x2C06F000, 0x2C04F000, 25, 0 /* GicRBase */),
@@ -120,9 +120,12 @@
           0x2C06F000, 0x2C04F000, 25, 0 /* GicRBase */),
 #endif
     },
-    EFI_ACPI_6_0_GIC_DISTRIBUTOR_INIT(0, FixedPcdGet64 (PcdGicDistributorBase), 0, 2),
+    // Format: EFI_ACPI_6_0_GIC_DISTRIBUTOR_INIT(GicDistHwId, GicDistBase, GicDistVector, GicVersion)
+    EFI_ACPI_6_0_GIC_DISTRIBUTOR_INIT(0, FixedPcdGet64 (PcdGicDistributorBase), 0, 3),
     // Format: EFI_ACPI_6_0_GIC_MSI_FRAME_INIT(GicMsiFrameId, PhysicalBaseAddress, Flags, SPICount, SPIBase)
+#if 0
     EFI_ACPI_6_0_GIC_MSI_FRAME_INIT(0, ARM_JUNO_GIV2M_MSI_BASE, 0, ARM_JUNO_GIV2M_MSI_SPI_COUNT, ARM_JUNO_GIV2M_MSI_SPI_BASE)
+#endif
   };
 #endif
 
