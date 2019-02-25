@@ -35,14 +35,10 @@ STATIC struct Pixel3XLReservedMemory {
   EFI_PHYSICAL_ADDRESS         Offset;
   EFI_PHYSICAL_ADDRESS         Size;
 } Pixel3XLReservedMemoryBuffer [] = {
-/*
-  { 0x1AC00000, 0x00098000 },    // ARM-TF reserved
-  { 0x32000000, 0x00100000 },    // PSTORE/RAMOOPS
-  { 0x32100000, 0x00001000 },    // ADB REBOOT "REASON"
-  { 0x3E000000, 0x02000000 },    // TEE OS
-  { 0x89B80000, 0x00100000 },    // MCU Code reserved
-  { 0x89C80000, 0x00040000 }     // MCU reserved
-*/ // TODO.
+  { 0x85700000, 0x00600000 },    // hyp_region
+  { 0x85e00000, 0x00100000 },    // xbl_region
+  { 0x85fc0000, 0x02f40000 },    // removed_region
+  { 0x8ab00000, 0x01400000 },    // qseecom_region
 };
 
 /**
