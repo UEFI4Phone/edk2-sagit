@@ -4,7 +4,9 @@ Attempt to create a minimal EDK2 for Pixel 3 XL.
 
 ## Status
 
-Absolutely nothing works. Currently clears screen at boot, then freezes.
+Can partially boot the Fedora 29 aarch64 kernel: the kernel gets graphical output then panics when calling EFI runtime services.
+
+Since there's no internal storage support yet, Use the addlinux branch to embed a Linux kernel in the UEFI firmware.
 
 ## Building
 Tested on Ubuntu 18.04.
