@@ -31,8 +31,9 @@ docopy:
   sub	x5, x5, x6 // x5 now holds offset of ArmPlatformPeiBootAction from start of FD base
   sub	x4, x4, x5 // x4 now holds address of actual FD base
   // tweak the return address
-  sub	lr, lr, x4
-  add	lr, lr, x6
+  // note: x30 is lr; gcc5 doesn't have the alias
+  sub	x30, x30, x4
+  add	x30, x30, x6
   ldr	x5, =FixedPcdGet64 (PcdFdSize)
   // crap memcpy
 loop:
