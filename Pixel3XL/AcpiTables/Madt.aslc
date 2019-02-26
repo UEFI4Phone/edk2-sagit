@@ -71,7 +71,9 @@
     EFI_ACPI_5_0_MULTIPLE_APIC_DESCRIPTION_TABLE_HEADER   Header;
     EFI_ACPI_5_1_GIC_STRUCTURE                            GicInterfaces[FixedPcdGet32 (PcdCoreCount)];
     EFI_ACPI_5_1_GIC_DISTRIBUTOR_STRUCTURE                GicDistributor;
+#if 0
     EFI_ACPI_6_0_GIC_MSI_FRAME_STRUCTURE                  MsiFrame;
+#endif
   } MULTIPLE_APIC_DESCRIPTION_TABLE;
 
   #pragma pack ()
