@@ -74,6 +74,7 @@
 #if 0
     EFI_ACPI_6_0_GIC_MSI_FRAME_STRUCTURE                  MsiFrame;
 #endif
+    EFI_ACPI_6_1_GICR_STRUCTURE                           Gicr;
   } MULTIPLE_APIC_DESCRIPTION_TABLE;
 
   #pragma pack ()
@@ -128,6 +129,14 @@
 #if 0
     EFI_ACPI_6_0_GIC_MSI_FRAME_INIT(0, ARM_JUNO_GIV2M_MSI_BASE, 0, ARM_JUNO_GIV2M_MSI_SPI_COUNT, ARM_JUNO_GIV2M_MSI_SPI_BASE)
 #endif
+    /* GIC Redistributor */
+    {
+      EFI_ACPI_6_1_GICR,                         // UINT8 Type
+      sizeof(EFI_ACPI_6_1_GICR_STRUCTURE),       // UINT8 Length
+      EFI_ACPI_RESERVED_WORD,                    // UINT16 Reserved
+      FixedPcdGet64 (PcdGicRedistributorsBase),  // UINT64 DiscoveryRangeBaseAddress
+      0x00100000,                                // UINT32 DiscoveryRangeLength
+    }
   };
 #endif
 
