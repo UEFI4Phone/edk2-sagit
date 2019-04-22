@@ -218,17 +218,29 @@ READ_LOCK_STATUS   = TRUE
   #Binary DXE drivers from Lenovo MSM8998
   #
 
-#  FILE DRIVER = 0d35cd8e-97ea-4f9a-96af-0f0d89f76567 {
-#    SECTION DXE_DEPEX = Pixel3XL/Binary/UFSDxe/UFSDxe.depex
-#    SECTION PE32 = Pixel3XL/Binary/UFSDxe/UFSDxe.efi
-#    SECTION UI = "UFSDxe"
-#  }
+  FILE DRIVER = 0d35cd8e-97ea-4f9a-96af-0f0d89f76567 {
+    SECTION DXE_DEPEX = Pixel3XL/Binary/UFSDxe/UFSDxe.depex
+    SECTION PE32 = Pixel3XL/Binary/UFSDxe/UFSDxe.efi
+    SECTION UI = "UFSDxe"
+  }
 
-#  FILE DRIVER = 7a32bd23-f735-4f57-aa1a-447d2fe3be0d {
-#    SECTION DXE_DEPEX = Pixel3XL/Binary/SPI/SPI.depex
-#    SECTION PE32 = Pixel3XL/Binary/SPI/SPI.efi
-#    SECTION UI = "SPI"
-#  }
+  FILE DRIVER = 7a32bd23-f735-4f57-aa1a-447d2fe3be0d {
+    SECTION DXE_DEPEX = Pixel3XL/Binary/SPI/SPI.depex
+    SECTION PE32 = Pixel3XL/Binary/SPI/SPI.efi
+    SECTION UI = "SPI"
+  }
+
+  FILE DRIVER = 2a7b4bef-80cd-49e1-b473-374ba4d673fc {
+    SECTION DXE_DEPEX = Pixel3XL/Binary/SPMI/SPMI.depex
+    SECTION PE32 = Pixel3XL/Binary/SPMI/SPMI.efi
+    SECTION UI = "SPMI"
+  }
+
+  FILE DRIVER = 04de8591-d2b3-4077-bbbe-b12070094eb6 {
+    SECTION DXE_DEPEX = Pixel3XL/Binary/I2C/I2C.depex
+    SECTION PE32 = Pixel3XL/Binary/I2C/I2C.efi
+    SECTION UI = "I2C"
+  }
 
 
 

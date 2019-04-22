@@ -133,7 +133,7 @@
   #
   gEfiMdeModulePkgTokenSpaceGuid.PcdEmuVariableNvModeEnable|TRUE
 
-  gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferAddress|0x9d600000
+  gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferAddress|0x9d400000
   gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
   gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferHeight|1920
 
