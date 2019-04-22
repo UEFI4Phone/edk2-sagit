@@ -1,12 +1,10 @@
-Attempt to create a minimal EDK2 for Pixel 3 XL.
+Attempt to create a minimal EDK2 for Xiaomi MI 6.
 
-[![Build Status](https://dev.azure.com/zhuoweizhang/edk2-pixel3/_apis/build/status/Pixel3Dev.edk2-pixel3?branchName=master)](https://dev.azure.com/zhuoweizhang/edk2-pixel3/_build/latest?definitionId=1&branchName=master)
+Based on zhuowei's port for Pixel3XL (https://github.com/Pixel3Dev/edk2-pixel3/).
 
-## Status
+##Status 
 
-Can partially boot the Fedora 29 aarch64 kernel: there's no initrd, so the kernel panics when mounting root FS.
-
-Since there's no internal storage support yet, use the addlinux branch to embed a Linux kernel in the UEFI firmware.
+Boots into EFI Shell for now.
 
 ## Building
 Tested on Ubuntu 18.04.
