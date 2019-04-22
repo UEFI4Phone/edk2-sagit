@@ -109,7 +109,7 @@
   # ARM General Interrupt Controller
   #
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x17a00000
-  gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17a60000
+  gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17b00000
 
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|0x12
   gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|0x13
@@ -133,9 +133,9 @@
   #
   gEfiMdeModulePkgTokenSpaceGuid.PcdEmuVariableNvModeEnable|TRUE
 
-  gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferAddress|0x9d400000
-  gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferWidth|1440
-  gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferHeight|2960
+  gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferAddress|0x9d600000
+  gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
+  gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferHeight|1920
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiExposedTableVersions|0x20
 

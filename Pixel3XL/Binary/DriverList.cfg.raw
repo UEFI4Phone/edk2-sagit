@@ -1,0 +1,80 @@
+#
+# Configure the Feature Menu entries
+#
+[USER Facing Feature Menu]
+
+Indent = 1
+FirstRow = 1
+# DefaultSelect = 2
+
+#
+#  First Label and App should be for Exit option
+#    Menu code will just exit on selection of 0 option
+#    So do NOT change this option
+#
+Label = "Exit Menu"
+App = Exit
+
+#
+#   Front Camera Feature
+#
+
+Label = " Front Camera Feature"
+App = WinDsdtUpdateControllerUI
+Arg = "FCamera"
+
+#
+#   Back Camera Feature
+#
+
+Label = " Back Camera Feature"
+App = WinDsdtUpdateControllerUI
+Arg = "BCamera"
+
+#
+#   BLUETOOTH Feature
+#
+
+Label = " BLUETOOTH Feature"
+App = WinDsdtUpdateControllerUI
+Arg = "BLUETOOTH"
+
+#
+#   AUDIO Feature
+#
+
+Label = " AUDIO Feature"
+App = WinDsdtUpdateControllerUI
+Arg = "AUDIO"
+
+#
+#   MODEM Feature
+#
+
+Label = " MODEM Feature"
+App = WinDsdtUpdateControllerUI
+Arg = "MODEM"
+
+#
+#   USB Feature
+#
+
+Label = " USB Feature"
+App = WinDsdtUpdateControllerUI
+Arg = "USB"
+
+#
+#   WLAN Feature
+#
+
+Label = " WLAN Feature"
+App = WinDsdtUpdateControllerUI
+Arg = "WLAN"
+
+#
+#  Reboot the device
+#
+Label = "Reboot"
+App = Cmd
+Arg = "Reboot"
+
