@@ -2,7 +2,7 @@ Attempt to create a minimal EDK2 for Xiaomi MI 6.
 
 Based on zhuowei's port for Pixel3XL (https://github.com/Pixel3Dev/edk2-pixel3/).
 
-##Status 
+## Status 
 
 Boots into EFI Shell for now.
 
