@@ -16,7 +16,7 @@
 #
 ################################################################################
 [Defines]
-  PLATFORM_NAME                  = Pixel3XL
+  PLATFORM_NAME                  = XiaomiMI6Pkg
   PLATFORM_GUID                  = 28f1a3bf-193a-47e3-a7b9-5a435eaab2ee
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010019
@@ -24,13 +24,13 @@
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
-  FLASH_DEFINITION               = Pixel3XL/Pixel3XL.fdf
+  FLASH_DEFINITION               = XiaomiMI6Pkg/XiaomiMI6Pkg.fdf
 
-!include Pixel3XL/CommonDsc.dsc.inc
+!include XiaomiMI6Pkg/CommonDsc.dsc.inc
 
 [LibraryClasses.common]
   ArmLib|ArmPkg/Library/ArmLib/ArmBaseLib.inf
-  ArmPlatformLib|Pixel3XL/Library/Pixel3XLLib/Pixel3XLLib.inf
+  ArmPlatformLib|XiaomiMI6Pkg/Library/XiaomiMI6Lib/XiaomiMI6Lib.inf
 
   CapsuleLib|MdeModulePkg/Library/DxeCapsuleLibNull/DxeCapsuleLibNull.inf
   UefiBootManagerLib|MdeModulePkg/Library/UefiBootManagerLib/UefiBootManagerLib.inf
@@ -43,7 +43,7 @@
   DxeServicesLib|MdePkg/Library/DxeServicesLib/DxeServicesLib.inf
   BootLogoLib|MdeModulePkg/Library/BootLogoLib/BootLogoLib.inf
 
-  SerialPortLib|Pixel3XL/Library/InMemorySerialPortLib/InMemorySerialPortLib.inf
+  SerialPortLib|XiaomiMI6Pkg/Library/InMemorySerialPortLib/InMemorySerialPortLib.inf
   RealTimeClockLib|EmbeddedPkg/Library/VirtualRealTimeClockLib/VirtualRealTimeClockLib.inf
   TimeBaseLib|EmbeddedPkg/Library/TimeBaseLib/TimeBaseLib.inf
 
@@ -133,9 +133,9 @@
   #
   gEfiMdeModulePkgTokenSpaceGuid.PcdEmuVariableNvModeEnable|TRUE
 
-  gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferAddress|0x9d400000
-  gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
-  gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferHeight|1920
+  gXiaomiMI6TokenSpaceGuid.PcdMipiFrameBufferAddress|0x9d400000
+  gXiaomiMI6TokenSpaceGuid.PcdMipiFrameBufferWidth|1080
+  gXiaomiMI6TokenSpaceGuid.PcdMipiFrameBufferHeight|1920
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiExposedTableVersions|0x20
 
@@ -195,8 +195,8 @@
   #
   EmbeddedPkg/Drivers/VirtualKeyboardDxe/VirtualKeyboardDxe.inf
 
-  Pixel3XL/Pixel3XLDxe/Pixel3XLDxe.inf
-  Pixel3XL/SimpleFbDxe/SimpleFbDxe.inf
+  XiaomiMI6Pkg/XiaomiMI6Dxe/XiaomiMI6Dxe.inf
+  XiaomiMI6Pkg/SimpleFbDxe/SimpleFbDxe.inf
 
   #
   # USB Host Support
@@ -233,12 +233,12 @@
   MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
   MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
   MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
-  Pixel3XL/AcpiTables/AcpiTables.inf
+  XiaomiMI6Pkg/AcpiTables/AcpiTables.inf
 
   #
   # SMBIOS Support
   #
-  Pixel3XL/Drivers/SmbiosPlatformDxe/SmbiosPlatformDxe.inf
+  XiaomiMI6Pkg/Drivers/SmbiosPlatformDxe/SmbiosPlatformDxe.inf
   MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
 
   #

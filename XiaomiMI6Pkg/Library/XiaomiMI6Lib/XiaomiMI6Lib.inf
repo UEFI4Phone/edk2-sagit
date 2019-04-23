@@ -12,7 +12,7 @@
 
 [Defines]
   INF_VERSION                    = 0x00010019
-  BASE_NAME                      = Pixel3XLLib
+  BASE_NAME                      = XiaomiMI6Lib
   FILE_GUID                      = 61620091-45BA-4EFF-8F58-F7ABF228CEBC
   MODULE_TYPE                    = BASE
   VERSION_STRING                 = 1.0
@@ -33,9 +33,9 @@
   SerialPortLib
 
 [Sources.common]
-  Pixel3XL.c
-  Pixel3XLHelper.S
-  Pixel3XLMem.c
+  XiaomiMI6.c
+  XiaomiMI6Helper.S
+  XiaomiMI6Mem.c
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdArmPrimaryCore

@@ -16,7 +16,7 @@
   MdeModulePkg/MdeModulePkg.dec
   EmbeddedPkg/EmbeddedPkg.dec
   ArmPkg/ArmPkg.dec
-  Pixel3XL/Pixel3XL.dec
+  XiaomiMI6Pkg/XiaomiMI6Pkg.dec
 
 [LibraryClasses]
   BaseLib
@@ -35,9 +35,9 @@
   gEfiCpuArchProtocolGuid
 
 [FixedPcd]
-  gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferAddress
-  gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferWidth
-  gPixel3XLTokenSpaceGuid.PcdMipiFrameBufferHeight
+  gXiaomiMI6TokenSpaceGuid.PcdMipiFrameBufferAddress
+  gXiaomiMI6TokenSpaceGuid.PcdMipiFrameBufferWidth
+  gXiaomiMI6TokenSpaceGuid.PcdMipiFrameBufferHeight
 
 [Guids]
   gEfiMdeModulePkgTokenSpaceGuid

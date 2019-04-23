@@ -24,7 +24,7 @@
 #
 ################################################################################
 
-[FD.PIXEL3XL_UEFI]
+[FD.XiaomiMI6Pkg_UEFI]
 BaseAddress   = 0xd0000000|gArmTokenSpaceGuid.PcdFdBaseAddress  # The base address of the Firmware in NOR Flash.
 Size          = 0x00200000|gArmTokenSpaceGuid.PcdFdSize         # The size in bytes of the FLASH Device
 ErasePolarity = 1
@@ -147,8 +147,8 @@ READ_LOCK_STATUS   = TRUE
   #
   INF EmbeddedPkg/Drivers/VirtualKeyboardDxe/VirtualKeyboardDxe.inf
 
-  INF Pixel3XL/Pixel3XLDxe/Pixel3XLDxe.inf
-  INF Pixel3XL/SimpleFbDxe/SimpleFbDxe.inf
+  INF XiaomiMI6Pkg/XiaomiMI6Dxe/XiaomiMI6Dxe.inf
+  INF XiaomiMI6Pkg/SimpleFbDxe/SimpleFbDxe.inf
 
 
   #
@@ -189,12 +189,12 @@ READ_LOCK_STATUS   = TRUE
   INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
   INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
   INF MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
-  INF RuleOverride = ACPITABLE Pixel3XL/AcpiTables/AcpiTables.inf
+  INF RuleOverride = ACPITABLE XiaomiMI6Pkg/AcpiTables/AcpiTables.inf
 
   #
   # SMBIOS Support
   #
-  INF Pixel3XL/Drivers/SmbiosPlatformDxe/SmbiosPlatformDxe.inf
+  INF XiaomiMI6Pkg/Drivers/SmbiosPlatformDxe/SmbiosPlatformDxe.inf
   INF MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
 
   #
@@ -219,26 +219,26 @@ READ_LOCK_STATUS   = TRUE
   #
 
   FILE DRIVER = 0d35cd8e-97ea-4f9a-96af-0f0d89f76567 {
-    SECTION DXE_DEPEX = Pixel3XL/Binary/UFSDxe/UFSDxe.depex
-    SECTION PE32 = Pixel3XL/Binary/UFSDxe/UFSDxe.efi
+    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/UFSDxe/UFSDxe.depex
+    SECTION PE32 = XiaomiMI6Pkg/Binary/UFSDxe/UFSDxe.efi
     SECTION UI = "UFSDxe"
   }
 
   FILE DRIVER = 7a32bd23-f735-4f57-aa1a-447d2fe3be0d {
-    SECTION DXE_DEPEX = Pixel3XL/Binary/SPI/SPI.depex
-    SECTION PE32 = Pixel3XL/Binary/SPI/SPI.efi
+    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/SPI/SPI.depex
+    SECTION PE32 = XiaomiMI6Pkg/Binary/SPI/SPI.efi
     SECTION UI = "SPI"
   }
 
   FILE DRIVER = 2a7b4bef-80cd-49e1-b473-374ba4d673fc {
-    SECTION DXE_DEPEX = Pixel3XL/Binary/SPMI/SPMI.depex
-    SECTION PE32 = Pixel3XL/Binary/SPMI/SPMI.efi
+    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/SPMI/SPMI.depex
+    SECTION PE32 = XiaomiMI6Pkg/Binary/SPMI/SPMI.efi
     SECTION UI = "SPMI"
   }
 
   FILE DRIVER = 04de8591-d2b3-4077-bbbe-b12070094eb6 {
-    SECTION DXE_DEPEX = Pixel3XL/Binary/I2C/I2C.depex
-    SECTION PE32 = Pixel3XL/Binary/I2C/I2C.efi
+    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/I2C/I2C.depex
+    SECTION PE32 = XiaomiMI6Pkg/Binary/I2C/I2C.efi
     SECTION UI = "I2C"
   }
 
@@ -270,7 +270,7 @@ READ_LOCK_STATUS   = TRUE
     }
   }
 
-!include Pixel3XL/CommonFdf.fdf.inc
+!include XiaomiMI6Pkg/CommonFdf.fdf.inc
 
 
 [Rule.Common.SEC]

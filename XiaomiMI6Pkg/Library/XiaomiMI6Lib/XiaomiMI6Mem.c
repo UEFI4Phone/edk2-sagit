@@ -31,10 +31,10 @@
 
 #define HIKEY960_MEMORY_SIZE               0x0000000100000000
 
-STATIC struct Pixel3XLReservedMemory {
+STATIC struct XiaomiMI6ReservedMemory {
   EFI_PHYSICAL_ADDRESS         Offset;
   EFI_PHYSICAL_ADDRESS         Size;
-} Pixel3XLReservedMemoryBuffer [] = {
+} XiaomiMI6ReservedMemoryBuffer [] = {
   { 0x85700000, 0x00600000 },    // hyp_region
   { 0x85e00000, 0x00100000 },    // xbl_region
   { 0x85fc0000, 0x02f40000 },    // removed_region
@@ -82,30 +82,30 @@ ArmPlatformGetVirtualMemoryMap (
   );
 
   NextHob.Raw = GetHobList ();
-  Count = sizeof (Pixel3XLReservedMemoryBuffer) / sizeof (struct Pixel3XLReservedMemory);
+  Count = sizeof (XiaomiMI6ReservedMemoryBuffer) / sizeof (struct XiaomiMI6ReservedMemory);
   while ((NextHob.Raw = GetNextHob (EFI_HOB_TYPE_RESOURCE_DESCRIPTOR, NextHob.Raw)) != NULL)
   {
     if (Index >= Count)
       break;
     if ((NextHob.ResourceDescriptor->ResourceType == EFI_RESOURCE_SYSTEM_MEMORY) &&
-        (Pixel3XLReservedMemoryBuffer[Index].Offset >= NextHob.ResourceDescriptor->PhysicalStart) &&
-        ((Pixel3XLReservedMemoryBuffer[Index].Offset + Pixel3XLReservedMemoryBuffer[Index].Size) <=
+        (XiaomiMI6ReservedMemoryBuffer[Index].Offset >= NextHob.ResourceDescriptor->PhysicalStart) &&
+        ((XiaomiMI6ReservedMemoryBuffer[Index].Offset + XiaomiMI6ReservedMemoryBuffer[Index].Size) <=
          NextHob.ResourceDescriptor->PhysicalStart + NextHob.ResourceDescriptor->ResourceLength))
     {
       ResourceAttributes = NextHob.ResourceDescriptor->ResourceAttribute;
       ResourceLength = NextHob.ResourceDescriptor->ResourceLength;
       ResourceTop = NextHob.ResourceDescriptor->PhysicalStart + ResourceLength;
-      ReservedTop = Pixel3XLReservedMemoryBuffer[Index].Offset + Pixel3XLReservedMemoryBuffer[Index].Size;
+      ReservedTop = XiaomiMI6ReservedMemoryBuffer[Index].Offset + XiaomiMI6ReservedMemoryBuffer[Index].Size;
 
       // Create the System Memory HOB for the reserved buffer
       BuildResourceDescriptorHob (
         EFI_RESOURCE_MEMORY_RESERVED,
         EFI_RESOURCE_ATTRIBUTE_PRESENT,
-        Pixel3XLReservedMemoryBuffer[Index].Offset,
-        Pixel3XLReservedMemoryBuffer[Index].Size
+        XiaomiMI6ReservedMemoryBuffer[Index].Offset,
+        XiaomiMI6ReservedMemoryBuffer[Index].Size
       );
       // Update the HOB
-      NextHob.ResourceDescriptor->ResourceLength = Pixel3XLReservedMemoryBuffer[Index].Offset -
+      NextHob.ResourceDescriptor->ResourceLength = XiaomiMI6ReservedMemoryBuffer[Index].Offset -
                                                    NextHob.ResourceDescriptor->PhysicalStart;
 
       // If there is some memory available on the top of the reserved memory then create a HOB

@@ -12,14 +12,14 @@
 
 [Defines]
   INF_VERSION                    = 0x0001001a
-  BASE_NAME                      = Pixel3XLDxe
+  BASE_NAME                      = XiaomiMI6Dxe
   FILE_GUID                      = 422BB380-0FFB-41EC-B86E-AE70F8A02DA3
   MODULE_TYPE                    = DXE_DRIVER
   VERSION_STRING                 = 1.0
-  ENTRY_POINT                    = Pixel3XLEntryPoint
+  ENTRY_POINT                    = XiaomiMI6EntryPoint
 
 [Sources.common]
-  Pixel3XLDxe.c
+  XiaomiMI6Dxe.c
 
 [Packages]
   EmbeddedPkg/EmbeddedPkg.dec

@@ -37,7 +37,7 @@
   ArmPlatformPkg/ArmPlatformPkg.dec
   MdeModulePkg/MdeModulePkg.dec
   MdePkg/MdePkg.dec
-  Pixel3XL/Pixel3XL.dec
+  XiaomiMI6Pkg/XiaomiMI6Pkg.dec
 
 [LibraryClasses]
   ArmLib
