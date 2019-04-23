@@ -31,7 +31,7 @@
 [LibraryClasses.common]
   ArmLib|ArmPkg/Library/ArmLib/ArmBaseLib.inf
   ArmPlatformLib|XiaomiMI6Pkg/Library/XiaomiMI6Lib/XiaomiMI6Lib.inf
-
+  CompilerIntrinsicsLib|ArmPkg/Library/CompilerIntrinsicsLib/CompilerIntrinsicsLib.inf
   CapsuleLib|MdeModulePkg/Library/DxeCapsuleLibNull/DxeCapsuleLibNull.inf
   UefiBootManagerLib|MdeModulePkg/Library/UefiBootManagerLib/UefiBootManagerLib.inf
   PlatformBootManagerLib|ArmPkg/Library/PlatformBootManagerLib/PlatformBootManagerLib.inf
@@ -65,6 +65,8 @@
 
   # SimpleFbDxe
   FrameBufferBltLib|MdeModulePkg/Library/FrameBufferBltLib/FrameBufferBltLib.inf
+
+  SerialPortLib|XiaomiMI6Pkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
 
 [LibraryClasses.common.SEC]
   PrePiLib|EmbeddedPkg/Library/PrePiLib/PrePiLib.inf
@@ -133,9 +135,9 @@
   #
   gEfiMdeModulePkgTokenSpaceGuid.PcdEmuVariableNvModeEnable|TRUE
 
-  gXiaomiMI6TokenSpaceGuid.PcdMipiFrameBufferAddress|0x9d400000
-  gXiaomiMI6TokenSpaceGuid.PcdMipiFrameBufferWidth|1080
-  gXiaomiMI6TokenSpaceGuid.PcdMipiFrameBufferHeight|1920
+  gXiaomiMI6PkgTokenSpaceGuid.PcdMipiFrameBufferAddress|0x9d400000
+  gXiaomiMI6PkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
+  gXiaomiMI6PkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1920
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiExposedTableVersions|0x20
 

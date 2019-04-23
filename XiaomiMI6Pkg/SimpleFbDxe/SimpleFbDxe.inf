@@ -35,9 +35,9 @@
   gEfiCpuArchProtocolGuid
 
 [FixedPcd]
-  gXiaomiMI6TokenSpaceGuid.PcdMipiFrameBufferAddress
-  gXiaomiMI6TokenSpaceGuid.PcdMipiFrameBufferWidth
-  gXiaomiMI6TokenSpaceGuid.PcdMipiFrameBufferHeight
+  gXiaomiMI6PkgTokenSpaceGuid.PcdMipiFrameBufferAddress
+  gXiaomiMI6PkgTokenSpaceGuid.PcdMipiFrameBufferWidth
+  gXiaomiMI6PkgTokenSpaceGuid.PcdMipiFrameBufferHeight
 
 [Guids]
   gEfiMdeModulePkgTokenSpaceGuid

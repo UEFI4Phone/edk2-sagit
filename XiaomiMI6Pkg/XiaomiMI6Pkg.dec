@@ -29,11 +29,13 @@
   Include                        # Root include for the package
 
 [Guids.common]
-  gXiaomiMI6TokenSpaceGuid        = { 0x99a14446, 0xaad7, 0xe460, {0xb4, 0xe5, 0x1f, 0x79, 0xaa, 0xa4, 0x93, 0xfd } }
+  gXiaomiMI6PkgTokenSpaceGuid        = { 0x99a14446, 0xaad7, 0xe460, {0xb4, 0xe5, 0x1f, 0x79, 0xaa, 0xa4, 0x93, 0xfd } }
 
 [PcdsFixedAtBuild.common]
   # Simple FrameBuffer
-  gXiaomiMI6TokenSpaceGuid.PcdMipiFrameBufferAddress|0x00400000|UINT32|0x0000a400
-  gXiaomiMI6TokenSpaceGuid.PcdMipiFrameBufferWidth|1080|UINT32|0x0000a401
-  gXiaomiMI6TokenSpaceGuid.PcdMipiFrameBufferHeight|1920|UINT32|0x0000a402
-  gXiaomiMI6TokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32|UINT32|0x0000a403
+  gXiaomiMI6PkgTokenSpaceGuid.PcdMipiFrameBufferAddress|0x00400000|UINT32|0x0000a400
+  gXiaomiMI6PkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080|UINT32|0x0000a401
+  gXiaomiMI6PkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1920|UINT32|0x0000a402
+  gXiaomiMI6PkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32|UINT32|0x0000a403
+  gXiaomiMI6PkgTokenSpaceGuid.PcdMipiFrameBufferVisibleWidth|1080|UINT32|0x0000a404
+  gXiaomiMI6PkgTokenSpaceGuid.PcdMipiFrameBufferVisibleHeight|1920|UINT32|0x0000a405
