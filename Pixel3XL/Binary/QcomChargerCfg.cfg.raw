@@ -5,7 +5,7 @@
 
 #
 # Version/Information:
-# file ChargerApp_SocTh_8998.cfg
+# file ChargerApp_VbattTh_8998.cfg
 #
 # Implements the Qualcomm's Charger application config parameters
 #
@@ -22,21 +22,23 @@
 #      9 : Adding Thermal configs 
 #     10 : Adding support for Charger Fg Peripheral dumps
 #     11 : Adding HVDCP Enable control
-#     12 : Adding Wipower configs
+#     12 : Adding WIPOWER configs
 #     13 : Removed config item for setting IUSB_MAX in case of SDP
-#     14 : Adding Charger led indication config 
-#     15 : Added changes for supporting different platforms, MTP, QRD, etc.
-#     16 : Removed SupportHostMode config (hostmode settings will be done in USB driver) and other unused config parameters
-#     17 : Add aux coffs and enabling profile loading 
-#     18 : Removed  HVDCP Enable control config parameter
-#     19 : Adding Config VBtEmpty threshold
-#     20 : Adding Fg Restart vbatt threshold 
-#     21 : Adding PBS triggered APF temperature threshold
-#     22 : Adding thermal source configuration to enable/disable INOV
-#     23 : Adding Rconn configuration
+#     14 : Adding Restarting FG flag
+#     15 : Adding Charger led indication config, rasing skin hot to 70-80C, disabling watchdog as default
+#     16 : Added changes for supporting different platforms, MTP, QRD, etc.
+#     17 : Removed SupportHostMode config (hostmode settings will be done in USB driver) and other unused config parameters
+#     18 : Enable battery profile loading by default 
+#     19 : Added VBattEstDiffThreshold configuration 
+#     20 : Add aux coffs
+#     21 : Removed  HVDCP Enable control config parameter
+#     22 : Adding Config VBtEmpty threshold
+#     23 : Adding PBS triggered APF temperature threshold
+#     24 : Adding thermal source configuration to enable/disable INOV
+#     25 : Adding Rconn configuration
 #
 
-CfgVersion = 23
+CfgVersion = 25
 
 # Configure Battery Voltage and Current limit 
 BattVoltLimHighDelta = 30
@@ -54,8 +56,8 @@ PrintChargerAppDbgMsgToFile = FALSE
 #Charging termination current in milliamps
 ChargingTermCurrent = 200
 
-#Battery ID Tolerance Percentage 8%
-BatteryIdTolerance = 8
+#Battery ID Tolerance Percentage 15%
+BatteryIdTolerance = 15
 
 #Debug board ID range, value in Ohms
 DebugBoardBatteryIdMin = 2000
@@ -81,7 +83,7 @@ UnknownBatteryBehavior = 3
 # 0: Show low battery icon, disable PON1/USBIN trigger to prevent reboot and shutdown
 # 1: Show low battery icon and stay on until device is turned off by user.
 # 2: Boot to HLOS
-DebugBoardBehavior = 1
+DebugBoardBehavior = 2
 
 #Boot device to HLOS in case of unsupported battery or battery emulator. In millivolt*/
 BootToHLOSThresholdInMv = 3600
@@ -106,14 +108,14 @@ BattMissingCfg = 0
 # 0: Do not enable Charger WDOG
 # 1: Enable Charger WDOG during charging and Disable before exiting
 # 2: Enable Charger WDOG during charging and leave enabled when exiting
-EnableChargerWdog = 2
+EnableChargerWdog = 1
 
 #Program THERM coeffs .. 
 #Picked up as per ThermB value per device/battery and initial values are given in HALF encoded
 ProgramAuxThermCoeffs = TRUE
-AuxThermC1           = BF
-AuxThermC2           = 36
-AuxThermC3           = FF
+AuxThermC1           = B6
+AuxThermC2           = 2D
+AuxThermC3           = E5
 
 #based on ThermB and pull up resistor value
 AuxThermHalfRangeInC = 25
@@ -125,7 +127,7 @@ BattThermBiasWait   = 4
 BattThermGndSel     = TRUE
 
 ProgramBattThermCoeffs = TRUE
-BattThermC1           = A1
+BattThermC1           = 9F
 BattThermC2           = 50
 BattThermC3           = FF
 #based on ThermB and pull up resistor value
@@ -134,7 +136,6 @@ BattThermHalfRangeInC  = 25
 #Program AUX_THERM configs
 AuxThermBiasWait   = 4
 AuxThermGndSel     = FALSE
-
 
 #Program device Skin and Charger Hot threhsolds
 ProgramSkinAndChargerHotThreshold = TRUE
@@ -148,9 +149,9 @@ SkinTempSrc      = TRUE
 DieTempSrc       = TRUE
 DieTempCompSrc   = TRUE
 
-#Use Battery SOC or voltage as threshold charging criteria
-#FALSE: Voltage based boot-up; TRUE: SOC based boot-up
-SocBasedBoot = TRUE
+#Use Battery SOC or voltage based threshold charging criteria
+#FALSE: Voltage threshold based boot-up; TRUE: SOC threshold based boot-up
+SocBasedBoot = FALSE
 
 #Load Fuel Gauge Battery Profile profile for SOC estimation and accuracy
 LoadBatteryProfile   = TRUE
@@ -187,29 +188,31 @@ TsensTimeoutMins = 30
 #Enable/disable Charger/FG Dump support
 EnableChargerFgDump = FALSE
 
-#support wipower or not*/
+#support wipower or not
 WiPowerSupported = FALSE
 
-#suspend DCIn or not after exiting UEFI*/
-SuspendDCIn = TRUE
+#Boot device to HLOS in case of wipower charging. In millivolt
+DCInBootToHLOSThresholdInMv = 3800
 
+#suspend DCIn or not after exiting UEFI
+SuspendDCIn = FALSE
 
 # FG Conditional Restart on Device reset
 FgCondRestart = TRUE
 
 # VBat Threshold value for conditional restart check, value in mV
-VBattEstDiffThreshold = 30
+VBattEstDiffThreshold = 200
 
 # Charging status indication via led 
 # 0 = Disable 1 = solid during charging 2 = led blinks during charging
 # if turned on LED will be turned off after threhsold charging is completed i.e. when device boot to HLOS
-ChargerLedConfig = 0
+ChargerLedConfig = 2
 
 #Rconn compensation Resistance, value in mOhms - range is +/- 100 mOhms
 RconnComp = 0
 
 ## Parameter values with respect to MTP Platform (Platform 1)
-# Configure FvMax and Fcc values 
+# Configure FVMax and Fcc values 
 Platform1_ChgFvMax  = 4350
 Platform1_ChgFccMax = 2000
 
@@ -225,7 +228,7 @@ Platform1_JeitaCriticalTempHighLimit = 68
 # when battery temperature goes out of bound, pbs will trigger AFP (shutdown device). 
 # setting cold to -273 to disablecold shutdown
 Platform1_HwAfpHotLimit     = 71
-Platform1_HwAfpColdLimit    = -23
+Platform1_HwAfpColdLimit    = -273
 
 #JEITA Charge Current Compensation when in battery temperature soft-limit
 #JEITA CC = min is 0 ma and max is 1575 ma - stpe size is 25mA
@@ -233,7 +236,7 @@ Platform1_JeitaCcCompCfg = 1000
 
 #JEITA Float Voltage Compensation when in battery temperature soft-limit
 #min is 0 and max .4725 V step size is 7.5 mV - unit is in mV
-Platform1_JeitaFvCompCfg = 105
+Platform1_JeitaFvCompCfg = 300
 
 #JEITA Float Voltage compensation during soft cold
 Platform1_JeitaSoftColdFvCompEnable = FALSE
@@ -250,7 +253,6 @@ Platform1_JeitaSoftHotCcCompEnable = TRUE
 #Vbat Empty threshold in mv
 Platform1_VBtEmpty = 2800
 
-
 ## Parameter values with respect to QRD Platform (Platform 2)
 # Configure VddMax and IbatMax values 
 # Set to 0 to configure through API
@@ -264,8 +266,8 @@ Platform2_JeitaSoftColdLimit = 10
 Platform2_JeitaSoftHotLimit  = 45
 Platform2_JeitaHardHotLimit  = 55
 Platform2_JeitaCriticalTempHighLimit = 60
-Platform2_HwAfpHotLimit     = 63
-Platform2_HwAfpColdLimit    = -23
+Platform2_HwAfpHotLimit     = 71
+Platform2_HwAfpColdLimit    = -273
 
 #JEITA Charge Current Compensation when in battery temperature soft-limit
 #JEITA CC = min is 0 ma and max is 1575 ma - stpe size is 25mA
@@ -289,6 +291,161 @@ Platform2_JeitaSoftHotCcCompEnable = TRUE
 
 #Vbat Empty threshold in mv
 Platform2_VBtEmpty = 2800
+
+## Parameter values with respect to C1 Platform (Platform 3)
+# Configure FVMax and Fcc values
+Platform3_ChgFvMax  = 4400
+Platform3_ChgFccMax = 1000
+
+#if HWJeitaEnable = TRUE then below values are picked up for SW JEITA
+# Configure limits for Battery Temperature (For negative values, use negative sign. Ex: -30)
+Platform3_JeitaCriticalTempLowLimit = -20
+Platform3_JeitaHardColdLimit = 0
+Platform3_JeitaSoftColdLimit = 10
+Platform3_JeitaSoftHotLimit  = 45
+Platform3_JeitaHardHotLimit  = 60
+Platform3_JeitaCriticalTempHighLimit = 70
+Platform3_HwAfpHotLimit = 71
+Platform3_HwAfpColdLimit = -273
+#JEITA Charge Current Compensation when in battery temperature soft-limit
+#JEITA CC = min is 0 ma and max is 1575 ma - stpe size is 25mA
+Platform3_JeitaCcCompCfg = 50
+
+#JEITA Float Voltage Compensation when in battery temperature soft-limit
+#min is 0 and max .4725 V step size is 7.5 mV - unit is in mV
+Platform3_JeitaFvCompCfg = 300
+
+#JEITA Float Voltage compensation during soft cold
+Platform3_JeitaSoftColdFvCompEnable = FALSE
+
+#JEITA Float Voltage compensation during soft hot
+Platform3_JeitaSoftHotFvCompEnable = TRUE
+
+#JEITA Charge Current compensation during soft cold
+Platform3_JeitaSoftColdCcCompEnable = TRUE
+
+#JEITA Charge Current compensation during soft hot
+Platform3_JeitaSoftHotCcCompEnable = TRUE
+
+#Vbat Empty threshold in mv
+Platform3_VBtEmpty = 2800
+
+## Parameter values with respect to C2 Platform (Platform 4)
+# Configure FVMax and Fcc values
+Platform4_ChgFvMax  = 4400
+Platform4_ChgFccMax = 1000
+
+#if HWJeitaEnable = TRUE then below values are picked up for SW JEITA
+# Configure limits for Battery Temperature (For negative values, use negative sign. Ex: -30)
+Platform4_JeitaCriticalTempLowLimit = -20
+Platform4_JeitaHardColdLimit = 0
+Platform4_JeitaSoftColdLimit = 10
+Platform4_JeitaSoftHotLimit  = 45
+Platform4_JeitaHardHotLimit  = 60
+Platform4_JeitaCriticalTempHighLimit = 70
+Platform4_HwAfpHotLimit = 71
+Platform4_HwAfpColdLimit = -273
+
+#JEITA Charge Current Compensation when in battery temperature soft-limit
+#JEITA CC = min is 0 ma and max is 1575 ma - stpe size is 25mA
+Platform4_JeitaCcCompCfg = 50
+
+#JEITA Float Voltage Compensation when in battery temperature soft-limit
+#min is 0 and max .4725 V step size is 7.5 mV - unit is in mV
+Platform4_JeitaFvCompCfg = 300
+
+#JEITA Float Voltage compensation during soft cold
+Platform4_JeitaSoftColdFvCompEnable = FALSE
+
+#JEITA Float Voltage compensation during soft hot
+Platform4_JeitaSoftHotFvCompEnable = TRUE
+
+#JEITA Charge Current compensation during soft cold
+Platform4_JeitaSoftColdCcCompEnable = TRUE
+
+#JEITA Charge Current compensation during soft hot
+Platform4_JeitaSoftHotCcCompEnable = TRUE
+
+#Vbat Empty threshold in mv
+Platform4_VBtEmpty = 2800
+
+## Parameter values with respect to D5 Platform (Platform 5)
+# Configure FVMax and Fcc values
+Platform5_ChgFvMax  = 4400
+Platform5_ChgFccMax = 1000
+
+#if HWJeitaEnable = TRUE then below values are picked up for SW JEITA
+# Configure limits for Battery Temperature (For negative values, use negative sign. Ex: -30)
+Platform5_JeitaCriticalTempLowLimit = -20
+Platform5_JeitaHardColdLimit = 0
+Platform5_JeitaSoftColdLimit = 10
+Platform5_JeitaSoftHotLimit  = 45
+Platform5_JeitaHardHotLimit  = 60
+Platform5_JeitaCriticalTempHighLimit = 70
+Platform5_HwAfpHotLimit = 71
+Platform5_HwAfpColdLimit = -273
+
+#JEITA Charge Current Compensation when in battery temperature soft-limit
+#JEITA CC = min is 0 ma and max is 1575 ma - stpe size is 25mA
+Platform5_JeitaCcCompCfg = 50
+
+#JEITA Float Voltage Compensation when in battery temperature soft-limit
+#min is 0 and max .4725 V step size is 7.5 mV - unit is in mV
+Platform5_JeitaFvCompCfg = 300
+
+#JEITA Float Voltage compensation during soft cold
+Platform5_JeitaSoftColdFvCompEnable = FALSE
+
+#JEITA Float Voltage compensation during soft hot
+Platform5_JeitaSoftHotFvCompEnable = TRUE
+
+#JEITA Charge Current compensation during soft cold
+Platform5_JeitaSoftColdCcCompEnable = TRUE
+
+#JEITA Charge Current compensation during soft hot
+Platform5_JeitaSoftHotCcCompEnable = TRUE
+
+#Vbat Empty threshold in mv
+Platform5_VBtEmpty = 2800
+
+## Parameter values with respect to D5S Platform (Platform 6)
+# Configure FVMax and Fcc values
+Platform6_ChgFvMax  = 4400
+Platform6_ChgFccMax = 1000
+
+#if HWJeitaEnable = TRUE then below values are picked up for SW JEITA
+# Configure limits for Battery Temperature (For negative values, use negative sign. Ex: -30)
+Platform6_JeitaCriticalTempLowLimit = -20
+Platform6_JeitaHardColdLimit = 0
+Platform6_JeitaSoftColdLimit = 10
+Platform6_JeitaSoftHotLimit  = 45
+Platform6_JeitaHardHotLimit  = 60
+Platform6_JeitaCriticalTempHighLimit = 70
+Platform6_HwAfpHotLimit = 71
+Platform6_HwAfpColdLimit = -273
+
+#JEITA Charge Current Compensation when in battery temperature soft-limit
+#JEITA CC = min is 0 ma and max is 1575 ma - stpe size is 25mA
+Platform6_JeitaCcCompCfg = 50
+
+#JEITA Float Voltage Compensation when in battery temperature soft-limit
+#min is 0 and max .4725 V step size is 7.5 mV - unit is in mV
+Platform6_JeitaFvCompCfg = 300
+
+#JEITA Float Voltage compensation during soft cold
+Platform6_JeitaSoftColdFvCompEnable = FALSE
+
+#JEITA Float Voltage compensation during soft hot
+Platform6_JeitaSoftHotFvCompEnable = TRUE
+
+#JEITA Charge Current compensation during soft cold
+Platform6_JeitaSoftColdCcCompEnable = TRUE
+
+#JEITA Charge Current compensation during soft hot
+Platform6_JeitaSoftHotCcCompEnable = TRUE
+
+#Vbat Empty threshold in mv
+Platform6_VBtEmpty = 2800
 
 #
 #  End of config

@@ -79,6 +79,7 @@ Label = "Enter Shell"
 App = Shell
 Arg = "-nomap -nostartup"
 
+
 #
 #  Toggle BootFromUSB First
 #    Toggle the variable value AttemptUSBFirst variable
@@ -126,7 +127,7 @@ Arg = "edl"
 #Fastboot App
 Label = "Fastboot"
 App = Fastboot
-FvGuid = "631008B0-B2D1-410A-8B49-2C5C4D8ECC7E"
+FvGuid = "046fae99-cf2e-49ed-a6a8-a1488b7e80d3"
 
 #
 # If BDS Menu should show some platform specific help string at the bottom of the
