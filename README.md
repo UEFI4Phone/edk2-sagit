@@ -4,7 +4,7 @@ Based on zhuowei's port for Pixel3XL (https://github.com/Pixel3Dev/edk2-pixel3/)
 
 ## Status 
 
-Boots into EFI Shell for now.
+Can load GRUB2 from a fat partition on the UFS.(/firmware is tested,you can also format the useless /cust for it)
 
 ## Building
 Tested on Ubuntu 18.04.
