@@ -219,7 +219,7 @@ READ_LOCK_STATUS   = TRUE
   #
 
   FILE DRIVER = 0d35cd8e-97ea-4f9a-96af-0f0d89f76567 {
-    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/UFSDxe/UFSDxe.depex
+#    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/UFSDxe/UFSDxe.depex
     SECTION PE32 = XiaomiMI6Pkg/Binary/UFSDxe/UFSDxe.efi
     SECTION UI = "UFSDxe"
   }
@@ -273,76 +273,3 @@ READ_LOCK_STATUS   = TRUE
 !include XiaomiMI6Pkg/CommonFdf.fdf.inc
 
 
-[Rule.Common.SEC]
-  FILE SEC = $(NAMED_GUID) RELOCS_STRIPPED {
-    TE  TE    Align = 8      |.efi
-  }
-
-[Rule.Common.PEI_CORE]
-  FILE PEI_CORE = $(NAMED_GUID) {
-    TE     TE           |.efi
-    UI     STRING ="$(MODULE_NAME)" Optional
-  }
-
-[Rule.Common.PEIM]
-  FILE PEIM = $(NAMED_GUID) {
-     PEI_DEPEX PEI_DEPEX Optional        |.depex
-     PE32      PE32                      |.efi
-     UI       STRING="$(MODULE_NAME)" Optional
-  }
-
-[Rule.Common.PEIM.TIANOCOMPRESSED]
-  FILE PEIM = $(NAMED_GUID) DEBUG_MYTOOLS_IA32 {
-    PEI_DEPEX PEI_DEPEX Optional         |.depex
-    GUIDED A31280AD-481E-41B6-95E8-127F4C984779 PROCESSING_REQUIRED = TRUE {
-      PE32      PE32                     |.efi
-      UI        STRING="$(MODULE_NAME)" Optional
-    }
-  }
-
-[Rule.Common.DXE_CORE]
-  FILE DXE_CORE = $(NAMED_GUID) {
-    PE32     PE32           |.efi
-    UI       STRING="$(MODULE_NAME)" Optional
-  }
-
-[Rule.Common.UEFI_DRIVER]
-  FILE DRIVER = $(NAMED_GUID) {
-    DXE_DEPEX    DXE_DEPEX Optional      |.depex
-    PE32         PE32                    |.efi
-    UI           STRING="$(MODULE_NAME)" Optional
-  }
-
-[Rule.Common.DXE_DRIVER]
-  FILE DRIVER = $(NAMED_GUID) {
-    DXE_DEPEX    DXE_DEPEX Optional      |.depex
-    PE32         PE32                    |.efi
-    UI           STRING="$(MODULE_NAME)" Optional
-  }
-
-[Rule.Common.DXE_RUNTIME_DRIVER]
-  FILE DRIVER = $(NAMED_GUID) {
-    DXE_DEPEX    DXE_DEPEX Optional      |.depex
-    PE32         PE32                    |.efi
-    UI           STRING="$(MODULE_NAME)" Optional
-  }
-
-[Rule.Common.UEFI_APPLICATION]
-  FILE APPLICATION = $(NAMED_GUID) {
-    UI     STRING ="$(MODULE_NAME)" Optional
-    PE32   PE32                    |.efi
-  }
-  
-[Rule.Common.DXE_DRIVER.BINARY]
-  FILE DRIVER = $(NAMED_GUID) {
-    DXE_DEPEX    DXE_DEPEX Optional      |.depex
-    PE32         PE32                    |.efi
-    UI           STRING="$(MODULE_NAME)" Optional
-  }
-
-[Rule.Common.UEFI_APPLICATION.BINARY]
-  FILE APPLICATION = $(NAMED_GUID) {
-    DXE_DEPEX    DXE_DEPEX Optional      |.depex
-    PE32         PE32                    |.efi
-    UI           STRING="$(MODULE_NAME)" Optional
-  }
