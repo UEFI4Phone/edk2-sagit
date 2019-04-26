@@ -39,6 +39,20 @@ STATIC struct XiaomiMI6ReservedMemory {
   { 0x85e00000, 0x00100000 },    // xbl_region
   { 0x85fc0000, 0x02f40000 },    // removed_region
   { 0x8ab00000, 0x01400000 },    // qseecom_region
+  { 0x8bf00000, 0x00500000 },    // camera_region
+  { 0x8c400000, 0x00010000 },    // ips_fw_region
+  { 0x8c410000, 0x00005000 },    // ipa_gsi_region
+  { 0x8c415000, 0x00002000 },    // gpu_region
+  { 0x8c500000, 0x01a00000 },    // adsp_region
+  { 0x8df00000, 0x00100000 },    // wlan_fw_region
+  { 0x8e000000, 0x07800000 },    // modem_region
+  { 0x95800000, 0x00500000 },    // video_region
+  { 0x95d00000, 0x00800000 },    // cdsp_region
+  { 0x96500000, 0x00200000 },    // mba_region
+  { 0x96700000, 0x01400000 },    // slpi_region
+  { 0x97b00000, 0x00100000 },    // pil_spss_region
+  { 0x9d400000, 0x02400000 },    // cont_splash_region (framebuffer)
+
 };
 
 /**
