@@ -44,6 +44,7 @@ InitPeripherals (
   )
 {
   //This mainly works.
+
   EFI_STATUS            Status;
 
   Status = gCpu->SetMemoryAttributes (gCpu, 0xa1a10000, 0x200000,
