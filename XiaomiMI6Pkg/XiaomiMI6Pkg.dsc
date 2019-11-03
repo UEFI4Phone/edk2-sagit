@@ -66,7 +66,7 @@
   # SimpleFbDxe
   FrameBufferBltLib|MdeModulePkg/Library/FrameBufferBltLib/FrameBufferBltLib.inf
 
-  SerialPortLib|XiaomiMI6Pkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
+ # SerialPortLib|XiaomiMI6Pkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
   PlatformBootManagerLib|XiaomiMI6Pkg/Library/PlatformBootManagerLib/PlatformBootManagerLib.inf
   MemoryInitPeiLib|XiaomiMI6Pkg/Library/MemoryInitPeiLib/PeiMemoryAllocationLib.inf
   PlatformPeiLib|XiaomiMI6Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
@@ -267,7 +267,7 @@
       NULL|MdeModulePkg/Library/BootMaintenanceManagerUiLib/BootMaintenanceManagerUiLib.inf
       PcdLib|MdePkg/Library/DxePcdLib/DxePcdLib.inf
   }
-  XiaomiMI6Pkg/Drivers/LogoDxe/LogoDxe.inf
+#  XiaomiMI6Pkg/Drivers/LogoDxe/LogoDxe.inf
 
   ShellPkg/Application/Shell/Shell.inf {
     <LibraryClasses>
