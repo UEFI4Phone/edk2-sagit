@@ -215,7 +215,7 @@ READ_LOCK_STATUS   = TRUE
   INF MdeModulePkg/Universal/DriverHealthManagerDxe/DriverHealthManagerDxe.inf
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
   INF MdeModulePkg/Application/UiApp/UiApp.inf
-#  INF XiaomiMI6Pkg/Drivers/LogoDxe/LogoDxe.inf
+  INF XiaomiMI6Pkg/Drivers/LogoDxe/LogoDxe.inf
 
   #
   #Binary DXE drivers from Lenovo MSM8998
