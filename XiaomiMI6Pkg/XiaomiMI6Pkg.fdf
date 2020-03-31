@@ -311,6 +311,13 @@ READ_LOCK_STATUS   = TRUE
 #    SECTION UI = "PmicDxe"
 #  }
 
+
+#  FILE DRIVER = 90a49afd-422f-08ae-9611-e788d3804845 {
+#    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/EnvDxe/EnvDxe.depex
+#    SECTION PE32 = XiaomiMI6Pkg/Binary/EnvDxe/EnvDxe.efi
+#    SECTION UI = "EnvDxe"
+#  }
+
 [FV.FVMAIN_COMPACT]
 FvAlignment        = 8
 ERASE_POLARITY     = 1
