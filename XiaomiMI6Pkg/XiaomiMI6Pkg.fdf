@@ -275,6 +275,12 @@ READ_LOCK_STATUS   = TRUE
     SECTION UI = "ChipInfo"
   }
 
+  FILE DRIVER = 4db5dea6-5302-4d1a-8a82-677a683b0d29 {
+    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/ClockDxe/ClockDxe.depex
+    SECTION PE32 = XiaomiMI6Pkg/Binary/ClockDxe/ClockDxe.efi
+    SECTION UI = "ClockDxe"
+  }
+
 [FV.FVMAIN_COMPACT]
 FvAlignment        = 8
 ERASE_POLARITY     = 1
