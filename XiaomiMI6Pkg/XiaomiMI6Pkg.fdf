@@ -263,6 +263,12 @@ READ_LOCK_STATUS   = TRUE
     SECTION UI = "DALTLMM"
   }
 
+  FILE DRIVER = af9763a2-033b-4109-8e17-56a98d380c92 {
+    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/HWIODxeDriver/HWIODxeDriver.depex
+    SECTION PE32 = XiaomiMI6Pkg/Binary/HWIODxeDriver/HWIODxeDriver.efi
+    SECTION UI = "HWIODxeDriver"
+  }
+
 [FV.FVMAIN_COMPACT]
 FvAlignment        = 8
 ERASE_POLARITY     = 1
