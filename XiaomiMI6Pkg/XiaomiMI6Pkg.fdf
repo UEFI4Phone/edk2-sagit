@@ -222,7 +222,7 @@ READ_LOCK_STATUS   = TRUE
   #
 
   FILE DRIVER = 0d35cd8e-97ea-4f9a-96af-0f0d89f76567 {
-#    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/UFSDxe/UFSDxe.depex
+    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/UFSDxe/UFSDxe.depex
     SECTION PE32 = XiaomiMI6Pkg/Binary/UFSDxe/UFSDxe.efi
     SECTION UI = "UFSDxe"
   }
