@@ -269,6 +269,12 @@ READ_LOCK_STATUS   = TRUE
     SECTION UI = "HWIODxeDriver"
   }
 
+  FILE DRIVER = 10e193df-9966-44e7-b17c-59dd831e20fc {
+    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/ChipInfo/ChipInfo.depex
+    SECTION PE32 = XiaomiMI6Pkg/Binary/ChipInfo/ChipInfo.efi
+    SECTION UI = "ChipInfo"
+  }
+
 [FV.FVMAIN_COMPACT]
 FvAlignment        = 8
 ERASE_POLARITY     = 1
