@@ -45,7 +45,6 @@ InitMmu (
   Status = ArmConfigureMmu (MemoryTable, &TranslationTableBase, &TranslationTableSize);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Error: Failed to enable MMU\n"));
-	ASSERT_EFI_ERROR(Status);
   }
 }
 
