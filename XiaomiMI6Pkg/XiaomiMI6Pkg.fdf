@@ -218,7 +218,7 @@ READ_LOCK_STATUS   = TRUE
   INF XiaomiMI6Pkg/Drivers/LogoDxe/LogoDxe.inf
 
   #
-  #Binary DXE drivers from Lenovo MSM8998
+  #Binary DXE drivers from Xiaomi sagit MSM8998
   #
 
   FILE DRIVER = 0d35cd8e-97ea-4f9a-96af-0f0d89f76567 {
