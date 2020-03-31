@@ -275,11 +275,11 @@ READ_LOCK_STATUS   = TRUE
     SECTION UI = "ChipInfo"
   }
 
-  FILE DRIVER = 4db5dea6-5302-4d1a-8a82-677a683b0d29 {
-    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/ClockDxe/ClockDxe.depex
-    SECTION PE32 = XiaomiMI6Pkg/Binary/ClockDxe/ClockDxe.efi
-    SECTION UI = "ClockDxe"
-  }
+#  FILE DRIVER = 4db5dea6-5302-4d1a-8a82-677a683b0d29 {
+#    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/ClockDxe/ClockDxe.depex
+#    SECTION PE32 = XiaomiMI6Pkg/Binary/ClockDxe/ClockDxe.efi
+#    SECTION UI = "ClockDxe"
+#  }
 
   FILE DRIVER = 5bd181db-0487-4f1a-ae73-820e165611b3 {
     SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/ButtonsDxe/ButtonsDxe.depex
@@ -292,6 +292,24 @@ READ_LOCK_STATUS   = TRUE
     SECTION PE32 = XiaomiMI6Pkg/Binary/PlatformInfoDxeDriver/PlatformInfoDxeDriver.efi
     SECTION UI = "PlatformInfoDxeDriver"
   }
+
+#  FILE DRIVER = cb29f4d1-7f37-4692-a416-93e82e219711 {
+#    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/NpaDxe/NpaDxe.depex
+#    SECTION PE32 = XiaomiMI6Pkg/Binary/NpaDxe/NpaDxe.efi
+#    SECTION UI = "NpaDxe"
+#  }
+
+  FILE DRIVER = 7942a7eb-b7d5-4e2e-b908-831e4de55b58 {
+    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/GlinkDxe/GlinkDxe.depex
+    SECTION PE32 = XiaomiMI6Pkg/Binary/GlinkDxe/GlinkDxe.efi
+    SECTION UI = "GlinkDxe"
+  }
+
+#  FILE DRIVER = 5776232e-082d-4b75-9a0e-fe1d13f7a5d9 {
+#    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/PmicDxe/PmicDxe.depex
+#    SECTION PE32 = XiaomiMI6Pkg/Binary/PmicDxe/PmicDxe.efi
+#    SECTION UI = "PmicDxe"
+#  }
 
 [FV.FVMAIN_COMPACT]
 FvAlignment        = 8
