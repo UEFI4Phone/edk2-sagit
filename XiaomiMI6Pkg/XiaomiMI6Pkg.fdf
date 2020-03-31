@@ -287,6 +287,12 @@ READ_LOCK_STATUS   = TRUE
     SECTION UI = "ButtonsDxe"
   }
 
+  FILE DRIVER = b105211b-bbbd-4add-a3b0-d1cf4a52154c {
+    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/PlatformInfoDxeDriver/PlatformInfoDxeDriver.depex
+    SECTION PE32 = XiaomiMI6Pkg/Binary/PlatformInfoDxeDriver/PlatformInfoDxeDriver.efi
+    SECTION UI = "PlatformInfoDxeDriver"
+  }
+
 [FV.FVMAIN_COMPACT]
 FvAlignment        = 8
 ERASE_POLARITY     = 1
