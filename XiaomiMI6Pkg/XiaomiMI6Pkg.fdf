@@ -171,12 +171,22 @@ READ_LOCK_STATUS   = TRUE
 #      SECTION UI = "ClockDxe"
 #    }
 
+    INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
+    INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
+
+     FILE DRIVER = f10f76db-42c1-533f-34a8-69be24653110 {
+      SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/SdccDxe/SdccDxe.depex
+      SECTION PE32 = XiaomiMI6Pkg/Binary/SdccDxe/SdccDxe.efi
+      SECTION UI = "SdccDxe"
+    }
+
     FILE DRIVER = 0d35cd8e-97ea-4f9a-96af-0f0d89f76567 {
       SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/UFSDxe/UFSDxe.depex
       SECTION PE32 = XiaomiMI6Pkg/Binary/UFSDxe/UFSDxe.efi
       SECTION UI = "UFSDxe"
     }
-
+    INF FatPkg/EnhancedFatDxe/Fat.inf
+    INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
 
     FILE DRIVER = 8681cc5a-0df6-441e-b4b8-e915c538f067 {
@@ -203,6 +213,17 @@ READ_LOCK_STATUS   = TRUE
       SECTION UI = "SPI"
     }
 
+    FILE DRIVER = 5776232e-082d-4b75-9a0e-fe1d13f7a5d9 {
+      SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/PmicDxe/PmicDxe.depex
+      SECTION PE32 = XiaomiMI6Pkg/Binary/PmicDxe/PmicDxe.efi
+      SECTION UI = "PmicDxe"
+    }
+
+    FILE DRIVER = 5bd181db-0487-4f1a-ae73-820e165611b3 {
+      SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/ButtonsDxe/ButtonsDxe.depex
+      SECTION PE32 = XiaomiMI6Pkg/Binary/ButtonsDxe/ButtonsDxe.efi
+      SECTION UI = "ButtonsDxe"
+    }
   }
 
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
@@ -382,12 +403,24 @@ READ_LOCK_STATUS   = TRUE
 #    SECTION PE32 = XiaomiMI6Pkg/Binary/ClockDxe/ClockDxe.efi
 #    SECTION UI = "ClockDxe"
 #  }
+  
+  INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
+  INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
+
+  FILE DRIVER = f10f76db-42c1-533f-34a8-69be24653110 {
+    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/SdccDxe/SdccDxe.depex
+    SECTION PE32 = XiaomiMI6Pkg/Binary/SdccDxe/SdccDxe.efi
+    SECTION UI = "SdccDxe"
+  }
 
   FILE DRIVER = 0d35cd8e-97ea-4f9a-96af-0f0d89f76567 {
     SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/UFSDxe/UFSDxe.depex
     SECTION PE32 = XiaomiMI6Pkg/Binary/UFSDxe/UFSDxe.efi
     SECTION UI = "UFSDxe"
   }
+
+  INF FatPkg/EnhancedFatDxe/Fat.inf
+  INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
   FILE DRIVER = 8681cc5a-0df6-441e-b4b8-e915c538f067 {
     SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/DALTLMM/DALTLMM.depex
@@ -413,11 +446,11 @@ READ_LOCK_STATUS   = TRUE
     SECTION UI = "SPI"
   }
 
-#  FILE DRIVER = 5776232e-082d-4b75-9a0e-fe1d13f7a5d9 {
-#    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/PmicDxe/PmicDxe.depex
-#    SECTION PE32 = XiaomiMI6Pkg/Binary/PmicDxe/PmicDxe.efi
-#    SECTION UI = "PmicDxe"
-#  }
+  FILE DRIVER = 5776232e-082d-4b75-9a0e-fe1d13f7a5d9 {
+    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/PmicDxe/PmicDxe.depex
+    SECTION PE32 = XiaomiMI6Pkg/Binary/PmicDxe/PmicDxe.efi
+    SECTION UI = "PmicDxe"
+  }
 
   FILE DRIVER = 5bd181db-0487-4f1a-ae73-820e165611b3 {
     SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/ButtonsDxe/ButtonsDxe.depex
