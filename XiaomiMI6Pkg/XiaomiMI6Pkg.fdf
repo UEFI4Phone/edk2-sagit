@@ -157,6 +157,11 @@ READ_LOCK_STATUS   = TRUE
       SECTION UI = "ULogDxe"
     }
 
+    FILE DRIVER = cb29f4d1-7f37-4692-a416-93e82e219711 {
+      SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/NpaDxe/NpaDxe.depex
+      SECTION PE32 = XiaomiMI6Pkg/Binary/NpaDxe/NpaDxe.efi
+      SECTION UI = "NpaDxe"
+    }
 
   }
 
@@ -326,11 +331,11 @@ READ_LOCK_STATUS   = TRUE
     SECTION UI = "ULogDxe"
   }
 
-#  FILE DRIVER = cb29f4d1-7f37-4692-a416-93e82e219711 {
-#    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/NpaDxe/NpaDxe.depex
-#    SECTION PE32 = XiaomiMI6Pkg/Binary/NpaDxe/NpaDxe.efi
-#    SECTION UI = "NpaDxe"
-#  }
+  FILE DRIVER = cb29f4d1-7f37-4692-a416-93e82e219711 {
+    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/NpaDxe/NpaDxe.depex
+    SECTION PE32 = XiaomiMI6Pkg/Binary/NpaDxe/NpaDxe.efi
+    SECTION UI = "NpaDxe"
+  }
 
 #  FILE DRIVER = 4db5dea6-5302-4d1a-8a82-677a683b0d29 {
 #    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/ClockDxe/ClockDxe.depex
