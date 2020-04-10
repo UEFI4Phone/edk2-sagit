@@ -123,6 +123,10 @@ READ_LOCK_STATUS   = TRUE
   INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
+
+  INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
+  INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
+
 #  FILE DRIVER = 5e0eae60-eaed-4d75-b8bf-edbbaabc3f09 {
 #    SECTION PE32 = XiaomiMI6Pkg/Binary/SecurityDxe/SecurityDxe.efi
 #    SECTION UI = "SecurityDxe"
