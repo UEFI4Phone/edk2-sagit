@@ -206,6 +206,15 @@ READ_LOCK_STATUS   = TRUE
       SECTION UI = "QdssDxe"
     }
 
+  INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
+  INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
+  INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
+
+  INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
+  INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
+  INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
+  INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
+
     FILE DRIVER = 8681cc5a-0df6-441e-b4b8-e915c538f067 {
       SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/DALTLMM/DALTLMM.depex
       SECTION PE32 = XiaomiMI6Pkg/Binary/DALTLMM/DALTLMM.efi
