@@ -264,6 +264,12 @@ READ_LOCK_STATUS   = TRUE
     SECTION UI = "GlinkDxe"
   }
 
+  FILE DRIVER = e43128a8-8692-42b6-8afa-676158578d18 {
+    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/ULogDxe/ULogDxe.depex
+    SECTION PE32 = XiaomiMI6Pkg/Binary/ULogDxe/ULogDxe.efi
+    SECTION UI = "ULogDxe"
+  }
+
 #  FILE DRIVER = cb29f4d1-7f37-4692-a416-93e82e219711 {
 #    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/NpaDxe/NpaDxe.depex
 #    SECTION PE32 = XiaomiMI6Pkg/Binary/NpaDxe/NpaDxe.efi
