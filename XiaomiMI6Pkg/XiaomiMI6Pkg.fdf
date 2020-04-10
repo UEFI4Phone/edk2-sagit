@@ -145,6 +145,8 @@ READ_LOCK_STATUS   = TRUE
       SECTION UI = "PlatformInfoDxeDriver"
     }
 
+    INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
+
     FILE DRIVER = 7942a7eb-b7d5-4e2e-b908-831e4de55b58 {
       SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/GlinkDxe/GlinkDxe.depex
       SECTION PE32 = XiaomiMI6Pkg/Binary/GlinkDxe/GlinkDxe.efi
@@ -161,6 +163,44 @@ READ_LOCK_STATUS   = TRUE
       SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/NpaDxe/NpaDxe.depex
       SECTION PE32 = XiaomiMI6Pkg/Binary/NpaDxe/NpaDxe.efi
       SECTION UI = "NpaDxe"
+    }
+
+#    FILE DRIVER = 4db5dea6-5302-4d1a-8a82-677a683b0d29 {
+#      SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/ClockDxe/ClockDxe.depex
+#      SECTION PE32 = XiaomiMI6Pkg/Binary/ClockDxe/ClockDxe.efi
+#      SECTION UI = "ClockDxe"
+#    }
+
+    FILE DRIVER = 0d35cd8e-97ea-4f9a-96af-0f0d89f76567 {
+      SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/UFSDxe/UFSDxe.depex
+      SECTION PE32 = XiaomiMI6Pkg/Binary/UFSDxe/UFSDxe.efi
+      SECTION UI = "UFSDxe"
+    }
+
+
+
+    FILE DRIVER = 8681cc5a-0df6-441e-b4b8-e915c538f067 {
+      SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/DALTLMM/DALTLMM.depex
+      SECTION PE32 = XiaomiMI6Pkg/Binary/DALTLMM/DALTLMM.efi
+      SECTION UI = "DALTLMM"
+    }
+
+    FILE DRIVER = 04de8591-d2b3-4077-bbbe-b12070094eb6 {
+      SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/I2C/I2C.depex
+      SECTION PE32 = XiaomiMI6Pkg/Binary/I2C/I2C.efi
+      SECTION UI = "I2C"
+    }
+
+    FILE DRIVER = 2a7b4bef-80cd-49e1-b473-374ba4d673fc {
+      SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/SPMI/SPMI.depex
+      SECTION PE32 = XiaomiMI6Pkg/Binary/SPMI/SPMI.efi
+      SECTION UI = "SPMI"
+    }
+
+    FILE DRIVER = 7a32bd23-f735-4f57-aa1a-447d2fe3be0d {
+      SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/SPI/SPI.depex
+      SECTION PE32 = XiaomiMI6Pkg/Binary/SPI/SPI.efi
+      SECTION UI = "SPI"
     }
 
   }
