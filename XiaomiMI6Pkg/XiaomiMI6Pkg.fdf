@@ -177,11 +177,11 @@ READ_LOCK_STATUS   = TRUE
       SECTION UI = "NpaDxe"
     }
 
-#    FILE DRIVER = 4db5dea6-5302-4d1a-8a82-677a683b0d29 {
-#      SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/ClockDxe/ClockDxe.depex
-#      SECTION PE32 = XiaomiMI6Pkg/Binary/ClockDxe/ClockDxe.efi
-#      SECTION UI = "ClockDxe"
-#    }
+    FILE DRIVER = 4db5dea6-5302-4d1a-8a82-677a683b0d29 {
+      SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/ClockDxe/ClockDxe.depex
+      SECTION PE32 = XiaomiMI6Pkg/Binary/ClockDxe/ClockDxe.efi
+      SECTION UI = "ClockDxe"
+    }
 
     INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
     INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
