@@ -174,7 +174,7 @@ READ_LOCK_STATUS   = TRUE
     INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
     INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
 
-     FILE DRIVER = f10f76db-42c1-533f-34a8-69be24653110 {
+    FILE DRIVER = f10f76db-42c1-533f-34a8-69be24653110 {
       SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/SdccDxe/SdccDxe.depex
       SECTION PE32 = XiaomiMI6Pkg/Binary/SdccDxe/SdccDxe.efi
       SECTION UI = "SdccDxe"
@@ -188,6 +188,11 @@ READ_LOCK_STATUS   = TRUE
     INF FatPkg/EnhancedFatDxe/Fat.inf
     INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
+    FILE DRIVER = b003d837-44cc-b38b-7811-deb5ebbd74d8 {
+      SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/QdssDxe/QdssDxe.depex
+      SECTION PE32 = XiaomiMI6Pkg/Binary/QdssDxe/QdssDxe.efi
+      SECTION UI = "QdssDxe"
+    }
 
     FILE DRIVER = 8681cc5a-0df6-441e-b4b8-e915c538f067 {
       SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/DALTLMM/DALTLMM.depex
@@ -413,6 +418,12 @@ READ_LOCK_STATUS   = TRUE
 
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
+
+  FILE DRIVER = b003d837-44cc-b38b-7811-deb5ebbd74d8 {
+    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/QdssDxe/QdssDxe.depex
+    SECTION PE32 = XiaomiMI6Pkg/Binary/QdssDxe/QdssDxe.efi
+    SECTION UI = "QdssDxe"
+  }
 
   FILE DRIVER = 8681cc5a-0df6-441e-b4b8-e915c538f067 {
     SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/DALTLMM/DALTLMM.depex
