@@ -251,6 +251,12 @@ READ_LOCK_STATUS   = TRUE
       SECTION UI = "AdcDxe"
     }
 
+    FILE DRIVER = 4bce7f36-428e-4393-99e3-7e0844404dba {
+      SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/QcomChargerDxeLA/QcomChargerDxeLA.depex
+      SECTION PE32 = XiaomiMI6Pkg/Binary/QcomChargerDxeLA/QcomChargerDxeLA.efi
+      SECTION UI = "QcomChargerDxeLA"
+    }
+
     FILE DRIVER = 5bd181db-0487-4f1a-ae73-820e165611b3 {
       SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/ButtonsDxe/ButtonsDxe.depex
       SECTION PE32 = XiaomiMI6Pkg/Binary/ButtonsDxe/ButtonsDxe.efi
@@ -490,6 +496,12 @@ READ_LOCK_STATUS   = TRUE
     SECTION PE32 = XiaomiMI6Pkg/Binary/AdcDxe/AdcDxe.efi
     SECTION UI = "AdcDxe"
   }
+
+#  FILE DRIVER = 4bce7f36-428e-4393-99e3-7e0844404dba {
+#    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/QcomChargerDxeLA/QcomChargerDxeLA.depex
+#    SECTION PE32 = XiaomiMI6Pkg/Binary/QcomChargerDxeLA/QcomChargerDxeLA.efi
+#    SECTION UI = "QcomChargerDxeLA"
+#  }
 
   FILE DRIVER = 5bd181db-0487-4f1a-ae73-820e165611b3 {
     SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/ButtonsDxe/ButtonsDxe.depex
