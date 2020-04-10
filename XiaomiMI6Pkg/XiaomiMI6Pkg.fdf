@@ -105,7 +105,59 @@ READ_LOCK_CAP      = TRUE
 READ_LOCK_STATUS   = TRUE
 
   APRIORI DXE {
+    INF MdeModulePkg/Core/Dxe/DxeMain.inf
     INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
+    INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
+    INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
+    INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
+    INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
+    INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+    INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
+    INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
+
+    FILE DRIVER = f541d663-4a48-40aa-aabf-ff158ccae34c {
+      SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/SmemDxe/SmemDxe.depex
+      SECTION PE32 = XiaomiMI6Pkg/Binary/SmemDxe/SmemDxe.efi
+      SECTION UI = "SmemDxe"
+    }
+
+    FILE DRIVER = 8e9bd160-b184-11df-94e2-0800200c9a66 {
+      SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/DALSys/DALSys.depex
+      SECTION PE32 = XiaomiMI6Pkg/Binary/DALSys/DALSys.efi
+      SECTION UI = "DALSys"
+    }
+
+    FILE DRIVER = af9763a2-033b-4109-8e17-56a98d380c92 {
+      SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/HWIODxeDriver/HWIODxeDriver.depex
+      SECTION PE32 = XiaomiMI6Pkg/Binary/HWIODxeDriver/HWIODxeDriver.efi
+      SECTION UI = "HWIODxeDriver"
+    }
+
+    FILE DRIVER = 10e193df-9966-44e7-b17c-59dd831e20fc {
+      SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/ChipInfo/ChipInfo.depex
+      SECTION PE32 = XiaomiMI6Pkg/Binary/ChipInfo/ChipInfo.efi
+      SECTION UI = "ChipInfo"
+    }
+
+    FILE DRIVER = b105211b-bbbd-4add-a3b0-d1cf4a52154c {
+      SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/PlatformInfoDxeDriver/PlatformInfoDxeDriver.depex
+      SECTION PE32 = XiaomiMI6Pkg/Binary/PlatformInfoDxeDriver/PlatformInfoDxeDriver.efi
+      SECTION UI = "PlatformInfoDxeDriver"
+    }
+
+    FILE DRIVER = 7942a7eb-b7d5-4e2e-b908-831e4de55b58 {
+      SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/GlinkDxe/GlinkDxe.depex
+      SECTION PE32 = XiaomiMI6Pkg/Binary/GlinkDxe/GlinkDxe.efi
+      SECTION UI = "GlinkDxe"
+    }
+
+    FILE DRIVER = e43128a8-8692-42b6-8afa-676158578d18 {
+      SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/ULogDxe/ULogDxe.depex
+      SECTION PE32 = XiaomiMI6Pkg/Binary/ULogDxe/ULogDxe.efi
+      SECTION UI = "ULogDxe"
+    }
+
+
   }
 
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
