@@ -106,6 +106,13 @@ READ_LOCK_STATUS   = TRUE
 
   APRIORI DXE {
     INF MdeModulePkg/Core/Dxe/DxeMain.inf
+
+    FILE DRIVER = 90a49afd-422f-08ae-9611-e788d3804845 {
+      SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/EnvDxe/EnvDxe.depex
+      SECTION PE32 = XiaomiMI6Pkg/Binary/EnvDxe/EnvDxe.efi
+      SECTION UI = "EnvDxe"
+    }
+
     INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
     INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
     INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
@@ -114,6 +121,11 @@ READ_LOCK_STATUS   = TRUE
     INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
     INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
     INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
+
+    FILE DRIVER = 5e0eae60-eaed-4d75-b8bf-edbbaabc3f09 {
+      SECTION PE32 = XiaomiMI6Pkg/Binary/SecurityDxe/SecurityDxe.efi
+      SECTION UI = "SecurityDxe"
+    }
 
     FILE DRIVER = f541d663-4a48-40aa-aabf-ff158ccae34c {
       SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/SmemDxe/SmemDxe.depex
@@ -236,11 +248,7 @@ READ_LOCK_STATUS   = TRUE
   #
   # PI DXE Drivers producing Architectural Protocols (EFI Services)
   #
-#  FILE DRIVER = 90a49afd-422f-08ae-9611-e788d3804845 {
-#    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/EnvDxe/EnvDxe.depex
-#    SECTION PE32 = XiaomiMI6Pkg/Binary/EnvDxe/EnvDxe.efi
-#    SECTION UI = "EnvDxe"
-#  }
+
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
   INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
   INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
@@ -250,11 +258,7 @@ READ_LOCK_STATUS   = TRUE
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
   INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
 
-#  FILE DRIVER = 5e0eae60-eaed-4d75-b8bf-edbbaabc3f09 {
-#    SECTION PE32 = XiaomiMI6Pkg/Binary/SecurityDxe/SecurityDxe.efi
-#    SECTION UI = "SecurityDxe"
-#  }
-  INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
+#  INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
@@ -346,6 +350,17 @@ READ_LOCK_STATUS   = TRUE
   #
   #Binary DXE drivers from Xiaomi sagit MSM8998
   #
+
+#  FILE DRIVER = 90a49afd-422f-08ae-9611-e788d3804845 {
+#    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/EnvDxe/EnvDxe.depex
+#    SECTION PE32 = XiaomiMI6Pkg/Binary/EnvDxe/EnvDxe.efi
+#    SECTION UI = "EnvDxe"
+#  }
+
+  FILE DRIVER = 5e0eae60-eaed-4d75-b8bf-edbbaabc3f09 {
+    SECTION PE32 = XiaomiMI6Pkg/Binary/SecurityDxe/SecurityDxe.efi
+    SECTION UI = "SecurityDxe"
+  }
 
   FILE DRIVER = f541d663-4a48-40aa-aabf-ff158ccae34c {
     SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/SmemDxe/SmemDxe.depex
