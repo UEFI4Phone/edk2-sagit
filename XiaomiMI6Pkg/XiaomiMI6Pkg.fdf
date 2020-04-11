@@ -217,6 +217,13 @@ READ_LOCK_STATUS   = TRUE
       SECTION PE32 = XiaomiMI6Pkg/Binary/QdssDxe/QdssDxe.efi
       SECTION UI = "QdssDxe"
     }
+    
+    #temporarily
+    FILE DRIVER = 02b01ad5-7e59-43e8-a6d8-238180613a5a {
+      SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/EmuVariableRuntimeDxe/EmuVariableRuntimeDxe.depex
+      SECTION PE32 = XiaomiMI6Pkg/Binary/EmuVariableRuntimeDxe/EmuVariableRuntimeDxe.efi
+      SECTION UI = "EmuVariableRuntimeDxe"
+    }
 
   INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
@@ -505,6 +512,12 @@ READ_LOCK_STATUS   = TRUE
     SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/QdssDxe/QdssDxe.depex
     SECTION PE32 = XiaomiMI6Pkg/Binary/QdssDxe/QdssDxe.efi
     SECTION UI = "QdssDxe"
+  }
+
+  FILE DRIVER = 02b01ad5-7e59-43e8-a6d8-238180613a5a {
+    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/EmuVariableRuntimeDxe/EmuVariableRuntimeDxe.depex
+    SECTION PE32 = XiaomiMI6Pkg/Binary/EmuVariableRuntimeDxe/EmuVariableRuntimeDxe.efi
+    SECTION UI = "EmuVariableRuntimeDxe"
   }
 
   FILE DRIVER = 8681cc5a-0df6-441e-b4b8-e915c538f067 {
