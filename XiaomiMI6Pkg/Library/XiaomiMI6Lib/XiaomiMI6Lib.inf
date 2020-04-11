@@ -24,6 +24,7 @@
   EmbeddedPkg/EmbeddedPkg.dec
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
+  XiaomiMI6Pkg/XiaomiMI6Pkg.dec
 
 [LibraryClasses]
   ArmLib

@@ -222,8 +222,13 @@ static ARM_MEMORY_REGION_DESCRIPTOR_EX gDeviceMemoryDescriptorEx[] = {
      EFI_RESOURCE_ATTRIBUTE_UNCACHEABLE, ARM_MEMORY_REGION_ATTRIBUTE_DEVICE,
      AddDev, EfiMemoryMappedIO},
 
+    /* Terminator for MMU*/
+    {0},
+    /* Terminator for LibMem */
+    { 0xFFFFFFFF, 0x00001000, EFI_RESOURCE_MEMORY_MAPPED_IO, 
+     EFI_RESOURCE_ATTRIBUTE_UNCACHEABLE, ARM_MEMORY_REGION_ATTRIBUTE_DEVICE, 
+     AddDev, EfiMemoryMappedIO}
 
-    /* Terminator */
-    {}};
+};
 
 #endif
