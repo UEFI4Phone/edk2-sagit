@@ -6,6 +6,16 @@ Based on zhuowei's port for Pixel3XL (https://github.com/Pixel3Dev/edk2-pixel3/)
 
 Can load GRUB2 from a fat partition on the UFS.(/firmware is tested,you can also format the useless /cust for it)
 
+### Working
+Continuous Display  
+UFS Storage  
+Vibrator  
+...
+
+### Not Working
+Clocks 
+...
+
 ## Building
 Tested on Ubuntu 18.04.
 
@@ -35,4 +45,6 @@ Then fastboot boot uefi.img.
 
 # Credits
 
-SimpleFbDxe screen driver is from imbushuo's [Lumia950XLPkg](https://github.com/WOA-Project/Lumia950XLPkg).
+This is based on zhuowei's [edk2-pixel3](https://github.com/Pixel3Dev/edk2-pixel3).  
+SimpleFbDxe screen driver is from imbushuo's [Lumia950XLPkg](https://github.com/WOA-Project/Lumia950XLPkg).  
+Special thanks to @lemon1ice and @imbushuo for guidance.  
