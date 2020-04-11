@@ -68,8 +68,8 @@
 
   SerialPortLib|XiaomiMI6Pkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
   PlatformBootManagerLib|XiaomiMI6Pkg/Library/PlatformBootManagerLib/PlatformBootManagerLib.inf
-#  MemoryInitPeiLib|XiaomiMI6Pkg/Library/MemoryInitPeiLib/PeiMemoryAllocationLib.inf
-#  PlatformPeiLib|XiaomiMI6Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
+  MemoryInitPeiLib|XiaomiMI6Pkg/Library/MemoryInitPeiLib/PeiMemoryAllocationLib.inf
+  PlatformPeiLib|XiaomiMI6Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
 
 [LibraryClasses.common.SEC]
   PrePiLib|EmbeddedPkg/Library/PrePiLib/PrePiLib.inf
