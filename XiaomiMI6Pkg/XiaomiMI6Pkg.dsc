@@ -243,7 +243,7 @@
   MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
   MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
   MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
-  XiaomiMI6Pkg/AcpiTables/AcpiTables.inf
+#  XiaomiMI6Pkg/AcpiTables/AcpiTables.inf
 
   #
   # SMBIOS Support

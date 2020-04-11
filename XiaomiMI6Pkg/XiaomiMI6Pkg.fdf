@@ -362,7 +362,19 @@ READ_LOCK_STATUS   = TRUE
   INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
   INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
   INF MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
-  INF RuleOverride = ACPITABLE XiaomiMI6Pkg/AcpiTables/AcpiTables.inf
+#  INF RuleOverride = ACPITABLE XiaomiMI6Pkg/AcpiTables/AcpiTables.inf
+
+  FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
+	SECTION RAW = XiaomiMI6Pkg/AcpiTables/8998/DBG2.aml
+	SECTION RAW = XiaomiMI6Pkg/AcpiTables/8998/DSDT.aml
+	SECTION RAW = XiaomiMI6Pkg/AcpiTables/8998/FACS.aml
+	SECTION RAW = XiaomiMI6Pkg/AcpiTables/8998/FADT.aml
+	SECTION RAW = XiaomiMI6Pkg/AcpiTables/8998/GTDT.aml
+	SECTION RAW = XiaomiMI6Pkg/AcpiTables/8998/MADT.aml
+	SECTION RAW = XiaomiMI6Pkg/AcpiTables/8998/MCFG.aml
+	SECTION RAW = XiaomiMI6Pkg/AcpiTables/8998/CSRT.aml
+	SECTION UI = "AcpiTables"
+  }
 
   #
   # SMBIOS Support
