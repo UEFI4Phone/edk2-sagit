@@ -127,6 +127,16 @@ READ_LOCK_STATUS   = TRUE
       SECTION UI = "SecurityDxe"
     }
 
+    FILE DRIVER = c2f9a4f5-f7b4-43e7-ba99-5ea804cc103a {
+      SECTION PE32 = XiaomiMI6Pkg/Binary/ASN1X509Dxe/ASN1X509Dxe.efi
+      SECTION UI = "ASN1X509Dxe"
+    }
+
+    FILE DRIVER = 32c71e68-83a8-46ed-aed1-094e71b12057 {
+      SECTION PE32 = XiaomiMI6Pkg/Binary/SecRSADxe/SecRSADxe.efi
+      SECTION UI = "SecRSADxe"
+    }
+
     FILE DRIVER = f541d663-4a48-40aa-aabf-ff158ccae34c {
       SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/SmemDxe/SmemDxe.depex
       SECTION PE32 = XiaomiMI6Pkg/Binary/SmemDxe/SmemDxe.efi
@@ -265,6 +275,11 @@ READ_LOCK_STATUS   = TRUE
       SECTION UI = "ButtonsDxe"
     }
 
+    FILE DRIVER = 3adf8dda-1850-44c5-8c63-bb991849bc6f {
+      SECTION PE32 = XiaomiMI6Pkg/Binary/HashDxe/HashDxe.efi
+      SECTION UI = "HashDxe"
+    }
+
     FILE DRIVER = b0d3689e-11f8-43c6-8ece-023a29cec35b {
       SECTION PE32 = XiaomiMI6Pkg/Binary/RngDxe/RngDxe.efi
       SECTION UI = "RngDxe"
@@ -388,6 +403,16 @@ READ_LOCK_STATUS   = TRUE
   FILE DRIVER = 5e0eae60-eaed-4d75-b8bf-edbbaabc3f09 {
     SECTION PE32 = XiaomiMI6Pkg/Binary/SecurityDxe/SecurityDxe.efi
     SECTION UI = "SecurityDxe"
+  }
+
+  FILE DRIVER = c2f9a4f5-f7b4-43e7-ba99-5ea804cc103a {
+    SECTION PE32 = XiaomiMI6Pkg/Binary/ASN1X509Dxe/ASN1X509Dxe.efi
+    SECTION UI = "ASN1X509Dxe"
+  }
+
+  FILE DRIVER = 32c71e68-83a8-46ed-aed1-094e71b12057 {
+    SECTION PE32 = XiaomiMI6Pkg/Binary/SecRSADxe/SecRSADxe.efi
+    SECTION UI = "SecRSADxe"
   }
 
   FILE DRIVER = f541d663-4a48-40aa-aabf-ff158ccae34c {
@@ -516,6 +541,11 @@ READ_LOCK_STATUS   = TRUE
     SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/ButtonsDxe/ButtonsDxe.depex
     SECTION PE32 = XiaomiMI6Pkg/Binary/ButtonsDxe/ButtonsDxe.efi
     SECTION UI = "ButtonsDxe"
+  }
+
+  FILE DRIVER = 3adf8dda-1850-44c5-8c63-bb991849bc6f {
+    SECTION PE32 = XiaomiMI6Pkg/Binary/HashDxe/HashDxe.efi
+    SECTION UI = "HashDxe"
   }
 
 #  FILE DRIVER = b0d3689e-11f8-43c6-8ece-023a29cec35b {
