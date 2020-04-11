@@ -264,6 +264,11 @@ READ_LOCK_STATUS   = TRUE
       SECTION PE32 = XiaomiMI6Pkg/Binary/ButtonsDxe/ButtonsDxe.efi
       SECTION UI = "ButtonsDxe"
     }
+
+    FILE DRIVER = b0d3689e-11f8-43c6-8ece-023a29cec35b {
+      SECTION PE32 = XiaomiMI6Pkg/Binary/RngDxe/RngDxe.efi
+      SECTION UI = "RngDxe"
+    }
   }
 
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
@@ -512,6 +517,11 @@ READ_LOCK_STATUS   = TRUE
     SECTION PE32 = XiaomiMI6Pkg/Binary/ButtonsDxe/ButtonsDxe.efi
     SECTION UI = "ButtonsDxe"
   }
+
+#  FILE DRIVER = b0d3689e-11f8-43c6-8ece-023a29cec35b {
+#    SECTION PE32 = XiaomiMI6Pkg/Binary/RngDxe/RngDxe.efi
+#    SECTION UI = "RngDxe"
+#  }
 
 [FV.FVMAIN_COMPACT]
 FvAlignment        = 8
