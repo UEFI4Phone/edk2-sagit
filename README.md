@@ -47,4 +47,4 @@ Then fastboot boot uefi.img.
 
 This is based on zhuowei's [edk2-pixel3](https://github.com/Pixel3Dev/edk2-pixel3).  
 SimpleFbDxe screen driver is from imbushuo's [Lumia950XLPkg](https://github.com/WOA-Project/Lumia950XLPkg).  
-Special thanks to @lemon1ice and @imbushuo for guidance.  
+Special thanks to @lemon1ice, @gus33000 and @imbushuo for guidance.  
