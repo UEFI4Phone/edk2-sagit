@@ -197,8 +197,10 @@ READ_LOCK_STATUS   = TRUE
       SECTION PE32 = XiaomiMI6Pkg/Binary/UFSDxe/UFSDxe.efi
       SECTION UI = "UFSDxe"
     }
+
     INF FatPkg/EnhancedFatDxe/Fat.inf
     INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
+    INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
     FILE DRIVER = b003d837-44cc-b38b-7811-deb5ebbd74d8 {
       SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/QdssDxe/QdssDxe.depex
@@ -454,6 +456,8 @@ READ_LOCK_STATUS   = TRUE
 
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
+
+  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   FILE DRIVER = b003d837-44cc-b38b-7811-deb5ebbd74d8 {
     SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/QdssDxe/QdssDxe.depex
