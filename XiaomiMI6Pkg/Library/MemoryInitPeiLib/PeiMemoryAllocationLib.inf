@@ -35,7 +35,6 @@
   DebugLib
   HobLib
   ArmMmuLib
-  ArmPlatformLib
 
 [Guids]
   gEfiMemoryTypeInformationGuid
