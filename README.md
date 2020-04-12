@@ -4,7 +4,8 @@ Based on zhuowei's port for Pixel3XL (https://github.com/Pixel3Dev/edk2-pixel3/)
 
 ## Status 
 
-Can load GRUB2 from a fat partition on the UFS.(/firmware is tested,you can also format the useless /cust for it)
+Can load GRUB2 from a fat partition on the UFS.(/firmware is tested,you can also format the useless /cust for it)  
+Windows now boots with minimal ACPI tables. (Checkout minimal-acpi branch)  
 
 ### Working
 Continuous Display  
