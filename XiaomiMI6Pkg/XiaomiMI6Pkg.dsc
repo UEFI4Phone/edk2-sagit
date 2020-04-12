@@ -66,7 +66,7 @@
   # SimpleFbDxe
   FrameBufferBltLib|MdeModulePkg/Library/FrameBufferBltLib/FrameBufferBltLib.inf
 
-  SerialPortLib|XiaomiMI6Pkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
+ # SerialPortLib|XiaomiMI6Pkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
   PlatformBootManagerLib|XiaomiMI6Pkg/Library/PlatformBootManagerLib/PlatformBootManagerLib.inf
 
 [LibraryClasses.common.SEC]
@@ -241,7 +241,7 @@
   MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
   MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
   MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
-#  XiaomiMI6Pkg/AcpiTables/AcpiTables.inf
+  XiaomiMI6Pkg/AcpiTables/AcpiTables.inf
 
   #
   # SMBIOS Support
