@@ -1,3 +1,10 @@
+## Notice  
+I have never posted any photos/videos about this project on public media. All videos, photo posts, news etc, are NOT posted by me.  
+我从未在网络上公开发布过任何与此项目有关的任何图片或视频，任何网络上相关视频(Bilibili/youtube)均不是我发布的，发布这些内容的账号均与我本人无关。  
+edk2-sagit源码仅在此repo发布。  
+This info is only added due to people's requests and the fact that this being overblown.  
+
+
 Attempt to create a minimal EDK2 for Xiaomi MI 6.
 
 Based on zhuowei's port for Pixel3XL (https://github.com/Pixel3Dev/edk2-pixel3/).
@@ -14,7 +21,7 @@ Vibrator
 ...
 
 ### Not Working
-Clocks 
+Clocks   
 ...
 
 ## Building
