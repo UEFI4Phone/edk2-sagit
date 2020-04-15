@@ -373,7 +373,7 @@ READ_LOCK_STATUS   = TRUE
 
   FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
 	SECTION RAW = XiaomiMI6Pkg/AcpiTables/8998/DBG2.aml
-	SECTION RAW = XiaomiMI6Pkg/AcpiTables/dsdt.raw
+	SECTION RAW = XiaomiMI6Pkg/AcpiTables/8998/DSDT.aml
 	SECTION RAW = XiaomiMI6Pkg/AcpiTables/8998/FACS.aml
 	SECTION RAW = XiaomiMI6Pkg/AcpiTables/8998/FADT.aml
 	SECTION RAW = XiaomiMI6Pkg/AcpiTables/8998/GTDT.aml
