@@ -89798,227 +89798,6 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "MSM8998 ", 0x00000003)
             }
         }
 
-        Scope (\_SB.I2C6)
-        {
-            Device (TCPD)
-            {
-                Name (_HID, "ELAN1200")  // _HID: Hardware ID
-                Name (_CID, "PNP0C50" /* HID Protocol Device (I2C bus) */)  // _CID: Compatible ID
-                Name (_UID, 0x02)  // _UID: Unique ID
-                Name (_DEP, Package (One)  // _DEP: Dependencies
-                {
-                    \_SB.I2C7, 
-                    \_SB.GIO0
-                })
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
-                {
-                    Name (RBUF, ResourceTemplate ()
-                    {
-                        I2cSerialBusV2 (0x0015, ControllerInitiated, 0x00061A80,
-                            AddressingMode7Bit, "\\_SB.I2C6",
-                            0x00, ResourceConsumer, , Exclusive,
-                            )
-                        GpioInt (Level, ActiveLow, Exclusive, PullUp, 0x0000,
-                            "\\_SB.GIO0", 0x00, ResourceConsumer, ,
-                            )
-                            {   // Pin list
-                                0x007B
-                            }
-                    })
-                    Return (RBUF) /* \_SB_.I2C6.TCPD._CRS.RBUF */
-                }
-
-                Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
-                {
-                    If ((Arg0 == ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
-                    {
-                        If ((Arg2 == Zero))
-                        {
-                            If ((Arg1 == One))
-                            {
-                                Debug = "Method _DSM Function Query"
-                                Return (Buffer (One)
-                                {
-                                     0x03                                             // .
-                                })
-                            }
-                        }
-
-                        If ((Arg2 == One))
-                        {
-                            Debug = "Method _DSM Function HID"
-                            Return (One)
-                        }
-                    }
-                    Else
-                    {
-                        Return (Buffer (One)
-                        {
-                             0x00                                             // .
-                        })
-                    }
-                }
-
-                Method (_STA, 0, NotSerialized)  // _STA: Status
-                {
-                    Return (0x0F)
-                }
-
-                Name (PGID, Buffer (0x0F)
-                {
-                    "\\_SB.I2C6.TCPD"
-                })
-                Name (DBUF, Buffer (DBFL){})
-                CreateByteField (DBUF, Zero, STAT)
-                CreateByteField (DBUF, 0x02, DVAL)
-                CreateField (DBUF, 0x18, 0xA0, DEID)
-                Method (_S1D, 0, NotSerialized)  // _S1D: S1 Device State
-                {
-                    Return (0x03)
-                }
-
-                Method (_S2D, 0, NotSerialized)  // _S2D: S2 Device State
-                {
-                    Return (0x03)
-                }
-
-                Method (_S3D, 0, NotSerialized)  // _S3D: S3 Device State
-                {
-                    Return (0x03)
-                }
-
-                Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
-                {
-                    Debug = "[TP] D0"
-                    DEID = Buffer (ESNL){}
-                    DVAL = Zero
-                    DEID = PGID /* \_SB_.I2C6.TCPD.PGID */
-                    If (\_SB.ABD.AVBL)
-                    {
-                        \_SB.PEP0.FLD0 = DBUF /* \_SB_.I2C6.TCPD.DBUF */
-                    }
-
-                    Local0 = \_SB.I2C7.LIDS ()
-                    Debug = "[TP] Wake up EC and enable TP_Power"
-                    \_SB.I2C7.GSAC (One)
-                }
-
-                Method (_PS3, 0, NotSerialized)  // _PS3: Power State 3
-                {
-                    Debug = "[TP] D3"
-                    DEID = Buffer (ESNL){}
-                    DVAL = 0x03
-                    DEID = PGID /* \_SB_.I2C6.TCPD.PGID */
-                    If (\_SB.ABD.AVBL)
-                    {
-                        \_SB.PEP0.FLD0 = DBUF /* \_SB_.I2C6.TCPD.DBUF */
-                    }
-
-                    \_SB.I2C7.GSAC (0x02)
-                }
-            }
-        }
-
-        Scope (\_SB.I2C6)
-        {
-            Device (ECKB)
-            {
-                Name (_HID, "QTEC0001")  // _HID: Hardware ID
-                Alias (\_SB.PSUB, _SUB)
-                Name (_CID, "PNP0C50" /* HID Protocol Device (I2C bus) */)  // _CID: Compatible ID
-                Name (_UID, 0x03)  // _UID: Unique ID
-                Name (_DEP, Package (One)  // _DEP: Dependencies
-                {
-                    \_SB.I2C7, 
-                    \_SB.GIO0
-                })
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
-                {
-                    Name (RBUF, ResourceTemplate ()
-                    {
-                        I2cSerialBusV2 (0x003A, ControllerInitiated, 0x00061A80,
-                            AddressingMode7Bit, "\\_SB.I2C6",
-                            0x00, ResourceConsumer, , Exclusive,
-                            )
-                        GpioInt (Level, ActiveLow, ExclusiveAndWake, PullUp, 0x0000,
-                            "\\_SB.GIO0", 0x00, ResourceConsumer, ,
-                            )
-                            {   // Pin list
-                                0x0025
-                            }
-                    })
-                    Return (RBUF) /* \_SB_.I2C6.ECKB._CRS.RBUF */
-                }
-
-                Method (_STA, 0, NotSerialized)  // _STA: Status
-                {
-                    Return (0x0F)
-                }
-
-                Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
-                {
-                    While (One)
-                    {
-                        Name (_T_0, Buffer (0x01)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
-                        {
-                             0x00                                             // .
-                        })
-                        CopyObject (ToBuffer (Arg0), _T_0) /* \_SB_.I2C6.ECKB._DSM._T_0 */
-                        If ((_T_0 == ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
-                        {
-                            While (One)
-                            {
-                                Name (_T_1, 0x00)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
-                                _T_1 = ToInteger (Arg2)
-                                If ((_T_1 == Zero))
-                                {
-                                    While (One)
-                                    {
-                                        Name (_T_2, 0x00)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
-                                        _T_2 = ToInteger (Arg1)
-                                        If ((_T_2 == One))
-                                        {
-                                            Return (Buffer (One)
-                                            {
-                                                 0x03                                             // .
-                                            })
-                                        }
-                                        Else
-                                        {
-                                            Return (Buffer (One)
-                                            {
-                                                 0x00                                             // .
-                                            })
-                                        }
-
-                                        Break
-                                    }
-                                }
-                                ElseIf ((_T_1 == One))
-                                {
-                                    Return (One)
-                                }
-                                Else
-                                {
-                                }
-
-                                Break
-                            }
-                        }
-                        Else
-                        {
-                            Return (Buffer (One)
-                            {
-                                 0x00                                             // .
-                            })
-                        }
-
-                        Break
-                    }
-                }
-            }
-        }
-
         Scope (\_SB)
         {
             Name (ECOK, Zero)
@@ -90706,10 +90485,6 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "MSM8998 ", 0x00000003)
                     {
                         Notify (\_SB.BATC, 0x80) // Status Change
                         Notify (\_SB.BATC, 0x81) // Information Change
-                    }
-                    ElseIf ((_T_0 == 0x0D))
-                    {
-                        Notify (\_SB.I2C6.ECKB, One) // Device Check
                     }
                     ElseIf ((_T_0 == 0x0E))
                     {
@@ -94304,148 +94079,6 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "MSM8998 ", 0x00000003)
             }
         }
 
-        Device (TSC1)
-        {
-            Name (_HID, "ELAN25E8")  // _HID: Hardware ID
-            Name (_CID, "PNP0C50" /* HID Protocol Device (I2C bus) */)  // _CID: Compatible ID
-            Name (_UID, One)  // _UID: Unique ID
-            Name (_HRV, One)  // _HRV: Hardware Revision
-            Name (_DEP, Package (0x03)  // _DEP: Dependencies
-            {
-                \_SB.GIO0, 
-                \_SB.I2C5, 
-                \_SB.PEP0
-            })
-            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
-            {
-                Name (RBUF, ResourceTemplate ()
-                {
-                    I2cSerialBusV2 (0x0010, ControllerInitiated, 0x00061A80,
-                        AddressingMode7Bit, "\\_SB.I2C5",
-                        0x00, ResourceConsumer, , Exclusive,
-                        RawDataBuffer (0x08)  // Vendor Data
-                        {
-                            0x50, 0xC3, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-                        })
-                    GpioInt (Level, ActiveLow, Exclusive, PullUp, 0x0000,
-                        "\\_SB.GIO0", 0x00, ResourceConsumer, ,
-                        )
-                        {   // Pin list
-                            0x007D
-                        }
-                })
-                Return (RBUF) /* \_SB_.TSC1._CRS.RBUF */
-            }
-
-            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
-            {
-                While (One)
-                {
-                    Name (_T_0, Buffer (0x01)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
-                    {
-                         0x00                                             // .
-                    })
-                    CopyObject (ToBuffer (Arg0), _T_0) /* \_SB_.TSC1._DSM._T_0 */
-                    If ((_T_0 == ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
-                    {
-                        While (One)
-                        {
-                            Name (_T_1, 0x00)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
-                            _T_1 = ToInteger (Arg2)
-                            If ((_T_1 == Zero))
-                            {
-                                While (One)
-                                {
-                                    Name (_T_2, 0x00)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
-                                    _T_2 = ToInteger (Arg1)
-                                    If ((_T_2 == One))
-                                    {
-                                        Return (Buffer (One)
-                                        {
-                                             0x03                                             // .
-                                        })
-                                    }
-                                    Else
-                                    {
-                                        Return (Buffer (One)
-                                        {
-                                             0x00                                             // .
-                                        })
-                                    }
-
-                                    Break
-                                }
-                            }
-                            ElseIf ((_T_1 == One))
-                            {
-                                Debug = "Method _DSM Function HID"
-                                Return (One)
-                            }
-                            Else
-                            {
-                            }
-
-                            Break
-                        }
-                    }
-                    Else
-                    {
-                        Return (Buffer (One)
-                        {
-                             0x00                                             // .
-                        })
-                    }
-
-                    Break
-                }
-            }
-
-            Name (PGID, Buffer (0x0A)
-            {
-                "\\_SB.TSC1"
-            })
-            Name (DBUF, Buffer (DBFL){})
-            CreateByteField (DBUF, Zero, STAT)
-            CreateByteField (DBUF, 0x02, DVAL)
-            CreateField (DBUF, 0x18, 0xA0, DEID)
-            Method (_S1D, 0, NotSerialized)  // _S1D: S1 Device State
-            {
-                Return (0x03)
-            }
-
-            Method (_S2D, 0, NotSerialized)  // _S2D: S2 Device State
-            {
-                Return (0x03)
-            }
-
-            Method (_S3D, 0, NotSerialized)  // _S3D: S3 Device State
-            {
-                Return (0x03)
-            }
-
-            Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
-            {
-                DEID = Buffer (ESNL){}
-                DVAL = Zero
-                DEID = PGID /* \_SB_.TSC1.PGID */
-                If (\_SB.ABD.AVBL)
-                {
-                    \_SB.PEP0.FLD0 = DBUF /* \_SB_.TSC1.DBUF */
-                }
-            }
-
-            Method (_PS3, 0, NotSerialized)  // _PS3: Power State 3
-            {
-                DEID = Buffer (ESNL){}
-                DVAL = 0x03
-                DEID = PGID /* \_SB_.TSC1.PGID */
-                If (\_SB.ABD.AVBL)
-                {
-                    \_SB.PEP0.FLD0 = DBUF /* \_SB_.TSC1.DBUF */
-                }
-            }
-        }
-
         Device (BTNS)
         {
             Name (_HID, "ACPI0011" /* Generic Buttons Device */)  // _HID: Hardware ID
@@ -95027,7 +94660,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "MSM8998 ", 0x00000003)
                         Zero
                     }, 
 
-                    Package (0x0D)
+                    Package (0x0C)
                     {
                         "PMIC_THERM", 
                         0x06, 
@@ -95039,8 +94672,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "MSM8998 ", 0x00000003)
                         One, 
                         Zero, 
                         Zero, 
-                        Zero, 
-                        PTCF0x02
+                        Zero
                     }, 
 
                     Package (0x0D)
@@ -96412,7 +96044,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "MSM8998 ", 0x00000003)
                         0x15F9
                     }, 
 
-                    Package (0x10)
+                    Package (0x0F)
                     {
                         "PMIC_THERM", 
                         0x06, 
@@ -96425,7 +96057,6 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "MSM8998 ", 0x00000003)
                         Zero, 
                         Zero, 
                         Zero, 
-                        PTCFPTCI (0x02), 
                         0xFFFF3CB0, 
                         0x000249F0
                     }, 
