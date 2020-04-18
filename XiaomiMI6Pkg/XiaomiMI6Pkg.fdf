@@ -604,6 +604,11 @@ READ_LOCK_STATUS   = TRUE
     }
   }
 
+  FILE FREEFORM = DDE58710-41CD-4306-DBFB-3FA90BB1D2DD {
+    SECTION UI = "uefiplat.cfg"
+    SECTION RAW = XiaomiMI6Pkg/uefiplat.cfg
+  }
+
 !include XiaomiMI6Pkg/CommonFdf.fdf.inc
 
 
