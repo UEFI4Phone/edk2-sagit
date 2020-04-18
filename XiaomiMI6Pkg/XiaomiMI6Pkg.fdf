@@ -413,11 +413,11 @@ READ_LOCK_STATUS   = TRUE
   #Binary DXE drivers from Xiaomi sagit MSM8998
   #
 
-#  FILE DRIVER = 90a49afd-422f-08ae-9611-e788d3804845 {
-#    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/EnvDxe/EnvDxe.depex
-#    SECTION PE32 = XiaomiMI6Pkg/Binary/EnvDxe/EnvDxe.efi
-#    SECTION UI = "EnvDxe"
-#  }
+  FILE DRIVER = 90a49afd-422f-08ae-9611-e788d3804845 {
+    SECTION DXE_DEPEX = XiaomiMI6Pkg/Binary/EnvDxe/EnvDxe.depex
+    SECTION PE32 = XiaomiMI6Pkg/Binary/EnvDxe/EnvDxe.efi
+    SECTION UI = "EnvDxe"
+  }
 
   FILE DRIVER = 5e0eae60-eaed-4d75-b8bf-edbbaabc3f09 {
     SECTION PE32 = XiaomiMI6Pkg/Binary/SecurityDxe/SecurityDxe.efi
