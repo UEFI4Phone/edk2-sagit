@@ -37,10 +37,18 @@ Next, install dependencies:
 18.04:
 
 ```
-sudo apt install build-essential uuid-dev iasl git nasm python3-distutils gcc-aarch64-linux-gnu abootimg
+sudo apt install build-essential uuid-dev iasl git nasm python python-pip python3-distutils gcc-aarch64-linux-gnu abootimg p7zip
+sudo pip install uefi_firmware
 ```
 
 Also see [EDK2 website](https://github.com/tianocore/tianocore.github.io/wiki/Using-EDK-II-with-Native-GCC#Install_required_software_from_apt)
+
+Then, extract the XBL binary from your device (the powerful dd will serve you), name it xbl.elf and put it to current directory.
+Execute ./extract-xbl.sh to get the proprietary blobs extracted:
+
+```
+./extract-xbl.sh
+```
 
 Finally, ./build.sh.
 
