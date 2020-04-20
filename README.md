@@ -37,7 +37,7 @@ Next, install dependencies:
 18.04:
 
 ```
-sudo apt install build-essential uuid-dev iasl git nasm python python-pip python3-distutils gcc-aarch64-linux-gnu abootimg p7zip
+sudo apt install build-essential uuid-dev iasl git nasm python python-pip python3-distutils gcc-aarch64-linux-gnu abootimg p7zip bsdiff
 sudo pip install uefi_firmware
 ```
 

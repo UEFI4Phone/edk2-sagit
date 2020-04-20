@@ -1,5 +1,8 @@
 #!/bin/bash
 
+EXTRACTED_DIR="./workspace/xbl_extract/fv_extracted"
+DEST_DIR="./XiaomiMI6Pkg/Binary"
+
 cleanup() {
 
 	rm -rf ./workspace/xbl_extract
@@ -20,8 +23,6 @@ extract_xbl() {
 
 copy_binary_files() {
 	
-	EXTRACTED_DIR="./workspace/xbl_extract/fv_extracted"
-	DEST_DIR="./XiaomiMI6Pkg/Binary"
 	cp $EXTRACTED_DIR/volume-8/file-90a49afd-422f-08ae-9611-e788d3804845/section1.pe $DEST_DIR/EnvDxe/EnvDxe.efi
 	cp $EXTRACTED_DIR/volume-8/file-5e0eae60-eaed-4d75-b8bf-edbbaabc3f09/section0.pe $DEST_DIR/SecurityDxe/SecurityDxe.efi
 	cp $EXTRACTED_DIR/volume-8/file-c2f9a4f5-f7b4-43e7-ba99-5ea804cc103a/section0.pe $DEST_DIR/ASN1X509Dxe/ASN1X509Dxe.efi
@@ -53,6 +54,15 @@ copy_binary_files() {
 
 }
 
+patch_binary_files() {
+
+	bspatch $DEST_DIR/ClockDxe/ClockDxe.efi $DEST_DIR/ClockDxe/ClockDxe.patched.efi $DEST_DIR/ClockDxe/ClockDxe.diff
+	rm $DEST_DIR/ClockDxe/ClockDxe.efi
+	mv $DEST_DIR/ClockDxe/ClockDxe.patched.efi $DEST_DIR/ClockDxe/ClockDxe.efi
+
+}
+
 cleanup
 extract_xbl
 copy_binary_files
+patch_binary_files
