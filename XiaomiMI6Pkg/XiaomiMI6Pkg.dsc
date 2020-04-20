@@ -203,7 +203,6 @@
   #
   EmbeddedPkg/Drivers/VirtualKeyboardDxe/VirtualKeyboardDxe.inf
 
-  XiaomiMI6Pkg/XiaomiMI6Dxe/XiaomiMI6Dxe.inf
   XiaomiMI6Pkg/SimpleFbDxe/SimpleFbDxe.inf
 
   #

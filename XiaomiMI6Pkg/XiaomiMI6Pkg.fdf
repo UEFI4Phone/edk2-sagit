@@ -335,7 +335,6 @@ READ_LOCK_STATUS   = TRUE
   #
   INF EmbeddedPkg/Drivers/VirtualKeyboardDxe/VirtualKeyboardDxe.inf
 
-  INF XiaomiMI6Pkg/XiaomiMI6Dxe/XiaomiMI6Dxe.inf
   INF XiaomiMI6Pkg/SimpleFbDxe/SimpleFbDxe.inf
 
 
